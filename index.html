@@ -2151,16 +2151,20 @@ A future-facing real-world context is provided below:
   }],
 
   "authentication": [{
-    // this key can be used to authenticate as DID ...9938
+    // this key can be used to authenticate as DID ...fghi
+    "id": "did:example:123456789abcdefghi#keys-1"
     "type": "RsaSignatureAuthentication2018",
+    "owner": "did:example:123456789abcdefghi"
     "publicKey": "did:example:123456789abcdefghi#keys-1"
   }, {
-    // this key can be used to authenticate as DID ...9938
+    // this key can be used to authenticate as DID ...fghi
+    "id": "did:example:123456789abcdefghi#bio-1"
     "type": "PseudonymousBiometricAuthentication2018",
+    "owner": "did:example:123456789abcdefghi"
     "biometricTemplate": "did:example:123456789abcdefghi#bio-1"
   }],
 
-  "service": [{
+  "services": [{
     "type": "OpenIdConnectVersion3.1Service",
     "serviceEndpoint": "https://openid.example.com/"
   }, {
