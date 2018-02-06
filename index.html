@@ -562,9 +562,7 @@ private keys.
   }],
   "authentication": [{
     // this biometric can be used to authenticate as DID ...fghi
-    "id": "did:example:123456789abcdefghi/biometric/1",
     "type": "PseudonymousBiometricTemplate2017",
-    "owner": "did:example:123456789abcdefghi",
     "biometricService": "https://example.com/authenticate",
     "biometricTemplateShard": "Mjk4MzQyO...5Mzg0MDI5Mwo="
   }],
@@ -977,9 +975,7 @@ Example:
   }],
   "authentication": [{
     // this biometric can be used to authenticate as DID ...fghi
-    "id": "did:example:123456789abcdefghi/biometric/1",
     "type": "PseudonymousBiometricTemplate2017",
-    "owner": "did:example:123456789abcdefghi",
     "biometricService": "https://example.com/authenticate",
     "biometricTemplateShard": "Mjk4MzQyO...5Mzg0MDI5Mwo="
   }],
@@ -1047,15 +1043,11 @@ Example:
   ...
   "authentication": [{
     // this key can be used to authenticate as DID ...fghi
-    "id": "did:example:123456789abcdefghi#keys-1"
     "type": "RsaSignatureAuthentication2018",
-    "owner": "did:example:123456789abcdefghi"
     "publicKey": "did:example:123456789abcdefghi#keys-1"
   }, {
     // this key can be used to authenticate as DID ...fghi
-    "id": "did:example:123456789abcdefghi#bio-1"
     "type": "PseudonymousBiometricAuthentication2018",
-    "owner": "did:example:123456789abcdefghi"
     "biometricTemplate": "did:example:123456789abcdefghi#bio-1"
   }],
   ...
@@ -2152,15 +2144,11 @@ A future-facing real-world context is provided below:
 
   "authentication": [{
     // this key can be used to authenticate as DID ...fghi
-    "id": "did:example:123456789abcdefghi#keys-1"
     "type": "RsaSignatureAuthentication2018",
-    "owner": "did:example:123456789abcdefghi"
     "publicKey": "did:example:123456789abcdefghi#keys-1"
   }, {
     // this key can be used to authenticate as DID ...fghi
-    "id": "did:example:123456789abcdefghi#bio-1"
     "type": "PseudonymousBiometricAuthentication2018",
-    "owner": "did:example:123456789abcdefghi"
     "biometricTemplate": "did:example:123456789abcdefghi#bio-1"
   }],
 
