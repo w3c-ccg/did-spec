@@ -1017,24 +1017,25 @@ property.
   </li>
 
   <li>
-The value of the <code>publicKey</code> property should be an
-array of public keys.
+The value of the <code>publicKey</code> property SHOULD be an
+array of public keys. If the value is not an array then it MUST be exactly one public key. 
   </li>
 
   <li>
-Each public key must include <code>id</code> and
-<code>type</code> properties, and exactly one value property.
+Each public key MUST include <code>id</code> and
+<code>type</code> properties, and exactly one value property. The array of public keys SHOULD not contain dublicate entries
+    with the same id and different value properties with different formats.
   </li>
 
   <li>
-Each public key may include an <code>owner</code> property, which identifies the entity that controls
+Each public key MAY include an <code>owner</code> property, which identifies the entity that controls
 the corresponding private key. If this property is missing, it is assumed to be the DID subject.
   </li>
 
   <li>
-The value property of a public key may be
-<code>publicKeyPem</code>, <code>publicKeyJwk</code>, <code>publicKeyHex</code>, <code>publicKeyBase64</code> or similar,
-depending on the format and encoding of the public key.
+The value property of a public key MUST be exactly one of
+<code>publicKeyPem</code>, <code>publicKeyJwk</code>, <code>publicKeyHex</code>, <code>publicKeyBase64</code>,
+depending on the format and encoding of the public key. A conforming implementation of this specification MUST support <code>publicKeyPem</code>.
   </li>
 
   <li>
