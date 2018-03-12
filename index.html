@@ -510,14 +510,13 @@ Capabilities document. The current consensus is to use object capabilities
 when possible to express authorization to modify a DID Document.
 </p>
 
-<pre class="example nohighlight" title="Minimal self-managed DID Document">
+<pre class="example nohighlight" title="Minimal self-managed JSON-LD DID Document">
 {
   "@context": "https://w3id.org/did/v1",
   "id": "did:example:123456789abcdefghi",
   "publicKey": [{
     "id": "did:example:123456789abcdefghi#keys-1",
     "type": "RsaVerificationKey2018",
-    "owner": "did:example:123456789abcdefghi",
     "publicKeyPem": "-----BEGIN PUBLIC KEY...END PUBLIC KEY-----\r\n"
   }],
   "authentication": [{
