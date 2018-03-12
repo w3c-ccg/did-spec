@@ -1657,7 +1657,8 @@ is signed.
   </li>
 
   <li>
-MAY offer the service of returning requested properties of the DID Document.
+MAY offer the service of returning requested properties of the DID Document. If this service is offered and the DID Document is
+signed then property values MUST only be returned if the signature is valid - otherwise an error MUST be returned.
   </li>
 </ol>
 
