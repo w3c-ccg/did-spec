@@ -1660,6 +1660,9 @@ is signed.
 MAY offer the service of returning requested properties of the DID Document. If this service is offered and the DID Document is
 signed then property values MUST only be returned if the signature is valid - otherwise an error MUST be returned.
   </li>
+  <li>
+If this service is offered and the DID Document can not be verified per the rules in the corresponding DID Method Specification,
+then the Resolver MUST return an error.
 </ol>
 
 </section>
@@ -1682,6 +1685,9 @@ signed then property values MUST only be returned if the signature is valid - ot
       For their part, the DLTs hosting DIDs and DID Documents have special security properties for preventing active attacks. Their design uses public/private key cryptography to allow operation on passively monitored networks without risking compromise of private keys. This is what makes DID architecture and decentralized identity possible.
 
 
+      Validating the signature of the DID document and returning properties of the DID must ensure that the signature validating
+      algorithm and the service returning properties return exactly those properties that are covered by the valid signature.
+      Separating signature validation and property extraction repeatedly lead to security vulnerabilities in the past.
 </p>
 
 <section>
