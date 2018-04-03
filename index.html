@@ -1122,39 +1122,39 @@ detail how revocation is performed and tracked.
 The rules for public keys are:
       </p>
 
-      <ol start="1">
-        <li>
-A DID Document MAY include a <code>publicKey</code> property.
-        </li>
+<ol start="1">
+  <li>
+A DID Document MAY include a <code>publicKey</code>
+property.
+  </li>
 
-        <li>
-The value of the <code>publicKey</code> property should be an
-array of public keys.
-        </li>
+  <li>
+The value of the <code>publicKey</code> property MUST be an
+array of public keys. 
+  </li>
 
-        <li>
-Each public key must include <code>id</code> and
-        <code>type</code> properties, and exactly one value property.
-        </li>
+  <li>
+Each public key MUST include <code>id</code> and
+<code>type</code> properties, and exactly one value property. The array of public keys SHOULD NOT contain duplicate entries
+    with the same <code>id</code> and different value properties with different formats.
+  </li>
 
-        <li>
-Each public key may include an <code>controller</code> property, which
-identifies the entity that controls the corresponding private key. If
-this property is missing, it is assumed to be the DID subject.
-        </li>
+  <li>
+Each public key MUST include a <code>controller</code> property, which identifies the entity that controls
+the corresponding private key. If this property is missing, it is assumed to be the DID subject.
+  </li>
 
-        <li>
-The value property of a public key may be
-        <code>publicKeyPem</code>, <code>publicKeyJwk</code>,
-        <code>publicKeyHex</code>, <code>publicKeyBase64</code> or similar,
-depending on the format and encoding of the public key.
-        </li>
+  <li>
+The value property of a public key MUST be exactly one of
+<code>publicKeyPem</code>, <code>publicKeyJwk</code>, <code>publicKeyHex</code>, <code>publicKeyBase64</code>, <code>publicKeyBase58</code>, or similar
+depending on the format and encoding of the public key. 
+  </li>
 
-        <li>
-A registry of key types and formats is available in Appendix
-<a href="#registries"></a>.
-        </li>
-      </ol>
+  <li>
+A registry of key types and formats is available in
+Appendix <a href="#registries"></a>.
+  </li>
+</ol>
 
       <p>
 Example:
