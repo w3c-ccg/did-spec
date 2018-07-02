@@ -1026,6 +1026,12 @@ The primary intention is that a DID Document lists public keys whose correspondi
 private keys are controlled by the entity identified by the DID ("owned" public keys).
 However, a DID Document MAY also list "non-owned" public keys.
 </p>
+<p>
+Public keys that do not exist in the DID Document MUST assume the key has been revoked or is invalid.
+The DID Document MAY contain revoked keys. Revoked keys that remain in the DID Document MUST have its associated
+revocation information available like a list. Each DID Method specification is expected to detail how
+revocation is performed and tracked.
+</p>
 
 <p>
 The rules for public keys are:
