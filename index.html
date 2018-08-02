@@ -101,6 +101,12 @@
         url: "https://www.linkedin.com/in/markus-sabadello-353a0821",
         company: "Danube Tech",
         companyURL: "https://danubetech.com/"
+      },
+      {
+        name: "Michael Lodder",
+        url: "www.linkedin.com/in/mike-lodder-48aab67",
+        company: "Evernym",
+        companyURL: "https://evernym.com/"
       }
     ],
 
@@ -127,6 +133,9 @@
   pre .highlight {
     font-weight: bold;
     color: green;
+  }
+  .noun {
+    font-family: 'Courier New';
   }
   </style>
 </head>
@@ -1439,7 +1448,6 @@ any normalization rules in its applicable URI scheme specification.
       <p>
 Example:
       </p>
-
       <pre class="example nohighlight" title="Various service endpoints">
 {
   "service": [{
@@ -1487,8 +1495,65 @@ See Sections <a href="#specific-did-method-schemes"></a>
 and <a href="#authentication"></a> for further security
 considerations regarding authentication service endpoints.
       </p>
-    </section>
+      <p>
+The purpose of the <span class="noun">did-service</span> component may optionally follow a DID is to enable
+construction of a DID reference that may be algorithmically transformed into a
+<em>concrete URL</em> to access the target resource. There are two algorithms for this transformation.
+Both begin with the same first step:
+      </p>
+<ol>
+  <li>
+  Extract the DID plus the the <span class="noun">did-service</span> component from the DID reference.
+  Call this the <em>DID service locator</em>. Call the rest of the DID reference the <em>service-specific string.</em>
+  </li>
+</ol>
+<h3>Service Selection by ID</h3>
+<p>
+  This algorithm MUST be used if the <span class="noun">did-service</span> component does NOT begin with the string <span class="noun">type=</span>
+</p>
+<ol>
+  <li>Select the first <code>service</code> object whose id property contains an exact match to the DID service locator.</li>
+  <li>Select the <code>serviceEndpoint</code> property of the selected <code>service</code> object.</li>
+  <li>Extract the value of the <code>serviceEndpoint</code> property. Call this the <em>endpoint URL.</em></li>
+  <li>Append the service-specific string to the endpoint URL.</li>
+  <li>The final result is the concrete URL.</li>
+</ol>
 
+<h3>Example</h3>
+<p>Say the following DID reference was resolved against a DID document containing the example <code>service</code> block above:</p>
+<pre class="example nohighlight">
+  did:example:123456789abcdefghi;agent/some/path?query#frag
+</pre>
+<p>A DID resolver would algorithmically transform that DID reference to the following concrete URL:</p>
+<pre class="example nohighlight">
+  https://agent.example.com/8377464/some/path?query#frag
+</pre>
+<h3>Service Selection by Type</h3>
+<p>This algorithm MUST be used if the <span class="noun">did-service</span> component begins with the string <span class="noun">type=.</span></p>
+<ol>
+  <li>Select the first <code>service</code> object whose type property contains an exact match
+      to the DID service locator exclusive of the prefix <span class="noun">type=</span>.
+      There MAY be more than one <code>service</code> object that meets this criteria––see below.</li>
+  <li>Select the <code>serviceEndpoint</code> property of the selected <code>service</code> object.</li>
+  <li>Extract the value of the <code>serviceEndpoint</code> property. Call this the endpoint URL.</li>
+  <li>Append the service-specific string to the endpoint URL.</li>
+  <li>The final result is the concrete URL.</li>
+</ol>
+<p>
+  If there is more than one <code>service</code> object that meets the selection criteria in step 2 above,
+  a DID resolver SHOULD return an array of concrete URLs. It is RECOMMENDED that service endpoint
+  protocols apply index-based priority to this array, i.e., the highest priority concrete URL is the lowest position in the array.
+</p>
+<h3>Example</h3>
+<p>Say the following DID reference was resolved against a DID document containing the example <code>service</code> block above:</p>
+<pre class="example nohighlight">
+  did:example:123456789abcdefghi;type=HubService/some/path?query#frag
+</pre>
+<p>A DID resolver would algorithmically transform that DID reference to the following concrete URL:</p>
+<pre class="example nohighlight">
+  https://hub.example.com/.identity/did:example:0123456789abcdef/some/path?query#frag
+</pre>
+    </section>
     <section>
       <h2>
 Created (Optional)
