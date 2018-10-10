@@ -719,16 +719,18 @@ Following is the ABNF definition using the syntax in [[RFC5234]]
       </p>
 
       <pre class="nohighlight">
-did-reference      = did [ "/" did-path ] [ "#" did-fragment ]
+did-reference      = did [";" did-service ] [ "/" did-path ] ["?" did-query ] [ "#" did-fragment ]
 did                = "did:" method ":" specific-idstring
 method             = 1*methodchar
 methodchar         = %x61-7A / DIGIT
 specific-idstring  = idstring *( ":" idstring )
 idstring           = 1*idchar
 idchar             = ALPHA / DIGIT / "." / "-"
+did-service        = 1*servicechar *(";" 1*servicechar)
+servicechar        = idchar / "=" / "&amp;"
 </pre>
       <p>
-See Sections <a href="#paths"></a> and <a href="#fragments"></a> for the ABNF rules defining DID paths and
+See Sections <a href="#paths"></a>, <a href="#fragments"></a>, <a href="#query"></a> for the ABNF rules defining DID paths and
 fragments.
       </p>
     </section>
@@ -795,6 +797,26 @@ service endpoint. See Section <a href="#service-endpoints"></a>.
 A specific DID scheme MAY specify ABNF rules for DID paths that are
 more restrictive than the generic rules in this section.
       </p>
+    </section>
+
+    <section>
+    <h2>
+Query
+    </h2>
+A generic <a>DID query</a> (the did-query rule in Section <a href="#the-generic-did-scheme"></a>) is identical to a URI search and MUST
+conform to the ABNF of the query rule in [[RFC3986]].
+<p>If a DID is followed immediately by a DID query component
+(i.e., it does NOT contain a path or fragment),
+then the DID query operates directly against the DID document.</p>
+
+<p>If a DID is followed by a DID fragment followed immediately by a DID query component,
+then the DID query operates against the branch of the DID document
+specified DID document fragment.</p>
+
+<p>A DID method specification MAY defined its own DID fragment query syntax.</p>
+
+<p>If a DID service URL (meaning a DID which includes a path component and optional fragment)
+is followed by a DID query, then that DID query operates against the target resource.</p>
     </section>
 
     <section>
