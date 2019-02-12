@@ -537,6 +537,7 @@ the controller of the private keys for this identifier.
     "publicKeyPem": "-----BEGIN PUBLIC KEY...END PUBLIC KEY-----\r\n"
   }],
   "service": [{
+    "id": "#service123",
     "type": "ExampleService",
     "serviceEndpoint": "https://example.com/endpoint/8377464"
   }]
@@ -1593,31 +1594,31 @@ Example:
       <pre class="example nohighlight" title="Various service endpoints">
 {
   "service": [{
-    "id": "did:example:123456789abcdefghi;openid",
+    "id": "#openid",
     "type": "OpenIdConnectVersion1.0Service",
     "serviceEndpoint": "https://openid.example.com/"
   }, {
-    "id": "did:example:123456789abcdefghi;vcr",
+    "id": "#vcr",
     "type": "CredentialRepositoryService",
     "serviceEndpoint": "https://repository.example.com/service/8377464"
   }, {
-    "id": "did:example:123456789abcdefghi;xdi",
+    "id": "#xdi",
     "type": "XdiService",
     "serviceEndpoint": "https://xdi.example.com/8377464"
   }, {
-    "id": "did:example:123456789abcdefghi;agent",
+    "id": "#agent",
     "type": "AgentService",
     "serviceEndpoint": "https://agent.example.com/8377464"
   }, {
-    "id": "did:example:123456789abcdefghi;hub",
+    "id": "#hub",
     "type": "HubService",
     "serviceEndpoint": "https://hub.example.com/.identity/did:example:0123456789abcdef/"
   }, {
-    "id": "did:example:123456789abcdefghi;messages",
+    "id": "#messages",
     "type": "MessagingService",
     "serviceEndpoint": "https://example.com/messages/8377464"
   }, {
-    "id": "did:example:123456789abcdefghi;inbox",
+    "id": "#inbox",
     "type": "SocialWebInboxService",
     "serviceEndpoint": "https://social.example.com/83hfh37dj",
     "description": "My public social inbox",
@@ -1626,7 +1627,7 @@ Example:
       "currency": "USD"
     }
   }, {
-    "id": "did:example:123456789abcdefghi;authpush",
+    "id": "#authpush",
     "type": "DidAuthPushModeVersion1",
     "serviceEndpoint": "http://auth.example.com/did:example:123456789abcdefg"
   }]
@@ -1890,7 +1891,7 @@ context above and adding the new property to the <a>DID Document</a>.
   "authentication": [ ... ],
   "service": [<span class="highlight">{
     "@context": "did:example:contexts:987654321",
-    "id": "did:example:123456789abcdefghi;photos",
+    "id": "#photos",
     "type": "PhotoStreamService",
     "serviceEndpoint": "https://example.org/photos/379283"
   }</span>]
@@ -2923,22 +2924,28 @@ A future-facing real-world context is provided below:
   ],
 
   "service": [{
+    "id": "did:example:123456789abcdefghi#oidc",
     "type": "OpenIdConnectVersion1.0Service",
     "serviceEndpoint": "https://openid.example.com/"
   }, {
+    "id": "did:example:123456789abcdefghi#vcStore",
     "type": "CredentialRepositoryService",
     "serviceEndpoint": "https://repository.example.com/service/8377464"
   }, {
+    "id": "did:example:123456789abcdefghi#xdi",
     "type": "XdiService",
     "serviceEndpoint": "https://xdi.example.com/8377464"
   }, {
+    "id": "did:example:123456789abcdefghi#hub",
     "type": "HubService",
     "serviceEndpoint": "https://hub.example.com/.identity/did:example:0123456789abcdef/"
   }, {
+    "id": "did:example:123456789abcdefghi#messaging",
     "type": "MessagingService",
     "serviceEndpoint": "https://example.com/messages/8377464"
   }, {
     "type": "SocialWebInboxService",
+    "id": "did:example:123456789abcdefghi#inbox",
     "serviceEndpoint": "https://social.example.com/83hfh37dj",
     "description": "My public social inbox",
     "spamCost": {
@@ -2947,9 +2954,10 @@ A future-facing real-world context is provided below:
     }
   }, {
     "type": "DidAuthPushModeVersion1",
+    "id": "did:example:123456789abcdefghi#push",
     "serviceEndpoint": "http://auth.example.com/did:example:123456789abcdefghi"
   }, {
-    "id": "did:example:123456789abcdefghi;bops",
+    "id": "did:example:123456789abcdefghi#bops",
     "type": "BopsService",
     "serviceEndpoint": "https://bops.example.com/enterprise/"
   }]
