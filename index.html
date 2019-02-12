@@ -730,53 +730,63 @@ idchar             = ALPHA / DIGIT / "." / "-"
 DID Reference
       </h2>
 
+      <p>DID References are used for two main purposes: to refer to sections
+inside a DID Document (via <a href="#did-fragments">DID Fragments</a>), and as a
+portable way to refer to Service Endpoint resources, queries and fragments.
+      </p>
+
       <pre class="nohighlight">
 did-reference      = did [ "#" did-fragment ] [";" service-id] [ "/" service-path ] [ "?" service-query ] [ "#" service-fragment ]
 service-id         = ALPHA / DIGIT / "." / "-" / "_"
       </pre>
 
+      <section>
+        <h3>
+  DID Fragments
+        </h3>
+
+        <p>
+  A generic <a>DID fragment</a> (the did-fragment rule in Section
+  <a href="#did-reference"></a>) is identical to a URI
+  fragment and MUST conform to the ABNF of the fragment ABNF rule in
+  [[RFC3986]]. A DID fragment MUST be used only as a method-independent
+  pointer into the DID Document to identify a unique key description or
+  other DID Document component. To resolve this pointer, the complete
+  DID reference including the DID fragment MUST be used as the value of
+  the id key for the target JSON object.
+        </p>
+
+        <p>
+  A specific DID scheme MAY specify ABNF rules for DID fragments that
+  are more restrictive than the generic rules in this section.
+        </p>
+
+        <p>
+  It is desirable that we enable tree-based processing of DIDs that include
+  DID fragments (which resolve directly within the DID document) to locate
+  metadata contained directly in the DID document or the service resource
+  given by the target URL without needing to rely on graph-based processing.
+        </p>
+        <p>
+  Implementations SHOULD NOT prevent the use of JSON pointers ([[RFC6901]]).
+        </p>
+      </section>
+
+      <section>
+        <h3>
+      DID Reference Service Paths, Queries and Fragments
+        </h3>
+
       <p>
-A DID path (the <pre>service-path</pre> rule above) is identical
-to a URI path and MUST conform to the ABNF of the path-rootless ABNF rule in
-[[RFC3986]]. A DID path is used to address resources available via a DID
+A DID Reference Service path (the <pre>service-path</pre> rule above) is
+identical to a URI path and MUST conform to the ABNF of the path-rootless ABNF
+rule in [[RFC3986]]. A DID path is used to address resources available via a DID
 service endpoint. See Section <a href="#service-endpoints"></a>.
       </p>
 
       <p>
-A specific DID scheme MAY specify ABNF rules for DID paths that are
-more restrictive than the generic rules in this section.
-      </p>
-    </section>
-
-    <section>
-      <h2>
-Fragments
-      </h2>
-
-      <p>
-A generic <a>DID fragment</a> (the did-fragment rule in Section
-<a href="#did-reference"></a>) is identical to a URI
-fragment and MUST conform to the ABNF of the fragment ABNF rule in
-[[RFC3986]]. A DID fragment MUST be used only as a method-independent
-pointer into the DID Document to identify a unique key description or
-other DID Document component. To resolve this pointer, the complete
-DID reference including the DID fragment MUST be used as the value of
-the id key for the target JSON object.
-      </p>
-
-      <p>
-A specific DID scheme MAY specify ABNF rules for DID fragments that
-are more restrictive than the generic rules in this section.
-      </p>
-
-      <p>
-It is desirable that we enable tree-based processing of DIDs that include
-DID fragments (which resolve directly within the DID document) to locate
-metadata contained directly in the DID document or the service resource
-given by the target URL without needing to rely on graph-based processing.
-      </p>
-      <p>
-Implementations SHOULD NOT prevent the use of JSON pointers ([[RFC6901]]).
+A specific DID scheme MAY specify ABNF rules for DID Reference service paths
+that are more restrictive than the generic rules in this section.
       </p>
     </section>
 
