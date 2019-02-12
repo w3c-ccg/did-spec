@@ -736,7 +736,9 @@ portable way to refer to Service Endpoint resources, queries and fragments.
       </p>
 
       <pre class="nohighlight">
-did-reference      = did [ "#" did-fragment ] [";" service-id] [ "/" service-path ] [ "?" service-query ] [ "#" service-fragment ]
+did-reference      = did (did-fragment-reference / did-service-reference)
+did-fragment-reference  = "#" did-fragment
+did-service-reference   = ";" service-id] [ "/" service-path ] [ "?" service-query ] [ "#" service-fragment ]
 service-id         = ALPHA / DIGIT / "." / "-" / "_"
       </pre>
 
