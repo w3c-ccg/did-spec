@@ -702,11 +702,12 @@ The Generic DID Scheme
 
       <p>
 The generic <a>DID scheme</a> is a URI scheme conformant with
-[[RFC3986]]. It consists of a DID followed by an optional path and/or
-fragment. The term DID refers only to the identifier conforming to
-the did rule in the ABNF below; when used alone, it does not include
-a path or fragment. A DID that may optionally include a path and/or
-fragment is called a DID reference.
+[[RFC3986]]. It consists of a DID method name, followed by a method-specific
+identifier. The term DID refers only to the identifier conforming to
+the did rule in the ABNF below.
+
+Additionally, a DID can be used as a component in a DID Reference, described in
+the <a href="#did-reference">DID Reference section</a> below.
       </p>
 
       <p>
@@ -715,29 +716,29 @@ Following is the ABNF definition using the syntax in [[RFC5234]]
       </p>
 
       <pre class="nohighlight">
-did-reference      = did [ "/" did-path ] [ "#" did-fragment ]
-did                = "did:" method ":" specific-idstring
+did                = "did:" method ":" method-specific-idstring
 method             = 1*methodchar
 methodchar         = %x61-7A / DIGIT
-specific-idstring  = idstring *( ":" idstring )
+method-specific-idstring  = idstring *( ":" idstring )
 idstring           = 1*idchar
 idchar             = ALPHA / DIGIT / "." / "-"
 </pre>
-      <p>
-See Sections <a href="#paths"></a> and <a href="#fragments"></a> for the ABNF rules defining DID paths and
-fragments.
-      </p>
     </section>
 
     <section>
       <h2>
-Paths
+DID Reference
       </h2>
 
+      <pre class="nohighlight">
+did-reference      = did [ "#" did-fragment ] [";" service-id] [ "/" service-path ] [ "?" service-query ] [ "#" service-fragment ]
+service-id         = ALPHA / DIGIT / "." / "-" / "_"
+      </pre>
+
       <p>
-A generic <a>DID path</a> (the did-path rule in Section <a href="#the-generic-did-scheme"></a>) is identical to a URI path and MUST
-conform to the ABNF of the path-rootless ABNF rule in [[RFC3986]]. A
-DID path SHOULD be used to address resources available via a DID
+A DID path (the <pre>service-path</pre> rule above) is identical
+to a URI path and MUST conform to the ABNF of the path-rootless ABNF rule in
+[[RFC3986]]. A DID path is used to address resources available via a DID
 service endpoint. See Section <a href="#service-endpoints"></a>.
       </p>
 
@@ -754,7 +755,7 @@ Fragments
 
       <p>
 A generic <a>DID fragment</a> (the did-fragment rule in Section
-<a href="#the-generic-did-scheme"></a>) is identical to a URI
+<a href="#did-reference"></a>) is identical to a URI
 fragment and MUST conform to the ABNF of the fragment ABNF rule in
 [[RFC3986]]. A DID fragment MUST be used only as a method-independent
 pointer into the DID Document to identify a unique key description or
@@ -813,7 +814,7 @@ Persistence
 
       <p>
 A DID MUST be persistent and immutable, i.e., bound to an entity once
-and never changed (forever). 
+and never changed (forever).
       </p>
 
       <p>
@@ -822,7 +823,7 @@ abstract decentralized identifier (like a UUID) that could be bound
 to multiple underlying distributed ledgers or networks over time,
 thus maintaining its persistence independent of any particular ledger
 or network. However registering the same identifier on multiple
-ledgers or networks introduces extremely hard entityship and 
+ledgers or networks introduces extremely hard entityship and
 <a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types%23SOA">start-of-authority</a>
 (SOA) problems. It also greatly increases implementation complexity
 for developers.
