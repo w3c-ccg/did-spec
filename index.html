@@ -819,7 +819,7 @@ The method name MUST be lowercase.
 
         <li>
 Case sensitivity and normalization of the value of the
-specific-idstring rule in Section <a href="#the-generic-did-scheme">
+<pre>method-specific-idstring</pre> rule in Section <a href="#the-generic-did-scheme">
           </a> MUST be defined by the governing DID method specification.
         </li>
       </ol>
@@ -1789,7 +1789,7 @@ DID Method Schemes
 
       <p>
 A DID method specification MUST define exactly one specific DID
-scheme identified by exactly one method name (the method rule in
+scheme identified by exactly one method name (the <pre>method</pre> rule in
 Section <a href="#the-generic-did-scheme"></a>). Since DIDs are
 intended for decentralized identity infrastructure, it is NOT
 RECOMMENDED to establish a registry of unique DID method names.
@@ -1813,18 +1813,19 @@ network to which the DID method specification applies.
 
       <p>
 The DID method specification for the specific DID scheme MUST specify
-how to generate the specific-idstring component of a DID. The
-specific-idstring value MUST be able to be generated without the use
-of a centralized registry service. The specific-idstring value SHOULD
-be globally unique by itself. The fully qualified DID as defined by
-the DID rule in Section <a href="#the-generic-did-scheme"></a> MUST
-be globally unique.
+how to generate the <pre>method-specific-idstring</pre> component of a DID. The
+<pre>method-specific-idstring</pre> value MUST be able to be generated without
+the use of a centralized registry service. The
+<pre>method-specific-idstring</pre> value SHOULD be globally unique by itself.
+The DID as defined by the <pre>did</pre> rule in Section
+<a href="#the-generic-did-scheme"></a> MUST be globally unique.
       </p>
 
       <p>
-If needed, a specific DID scheme MAY define multiple specific
-specific-idstring formats. It is RECOMMENDED that a specific DID
-scheme define as few specific-idstring formats as possible.
+If needed, a specific DID scheme MAY define multiple
+<pre>method-specific-idstring</pre> formats. It is RECOMMENDED that a specific
+DID scheme define as few <pre>method-specific-idstring</pre> formats as
+possible.
       </p>
     </section>
 
