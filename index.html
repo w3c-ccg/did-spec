@@ -534,7 +534,7 @@ Document.
     "publicKeyPem": "-----BEGIN PUBLIC KEY...END PUBLIC KEY-----\r\n"
   }],
   "service": [{
-    "id": "#service123",
+    "id": "did:example:123456789abcdefghi#service123",
     "type": "ExampleService",
     "serviceEndpoint": "https://example.com/endpoint/8377464"
   }]
@@ -1423,31 +1423,31 @@ Example:
       <pre class="example nohighlight" title="Various service endpoints">
 {
   "service": [{
-    "id": "#openid",
+    "id": "did:example:123456789abcdefghi#openid",
     "type": "OpenIdConnectVersion1.0Service",
     "serviceEndpoint": "https://openid.example.com/"
   }, {
-    "id": "#vcr",
+    "id": "did:example:123456789abcdefghi#vcr",
     "type": "CredentialRepositoryService",
     "serviceEndpoint": "https://repository.example.com/service/8377464"
   }, {
-    "id": "#xdi",
+    "id": "did:example:123456789abcdefghi#xdi",
     "type": "XdiService",
     "serviceEndpoint": "https://xdi.example.com/8377464"
   }, {
-    "id": "#agent",
+    "id": "did:example:123456789abcdefghi#agent",
     "type": "AgentService",
     "serviceEndpoint": "https://agent.example.com/8377464"
   }, {
-    "id": "#hub",
+    "id": "did:example:123456789abcdefghi#hub",
     "type": "HubService",
     "serviceEndpoint": "https://hub.example.com/.identity/did:example:0123456789abcdef/"
   }, {
-    "id": "#messages",
+    "id": "did:example:123456789abcdefghi#messages",
     "type": "MessagingService",
     "serviceEndpoint": "https://example.com/messages/8377464"
   }, {
-    "id": "#inbox",
+    "id": "did:example:123456789abcdefghi#inbox",
     "type": "SocialWebInboxService",
     "serviceEndpoint": "https://social.example.com/83hfh37dj",
     "description": "My public social inbox",
@@ -1456,7 +1456,7 @@ Example:
       "currency": "USD"
     }
   }, {
-    "id": "#authpush",
+    "id": "did:example:123456789abcdefghi#authpush",
     "type": "DidAuthPushModeVersion1",
     "serviceEndpoint": "http://auth.example.com/did:example:123456789abcdefg"
   }]
@@ -1720,7 +1720,7 @@ context above and adding the new property to the <a>DID Document</a>.
   "authentication": [ ... ],
   "service": [<span class="highlight">{
     "@context": "did:example:contexts:987654321",
-    "id": "#photos",
+    "id": "did:example:123456789abcdefghi#photos",
     "type": "PhotoStreamService",
     "serviceEndpoint": "https://example.org/photos/379283"
   }</span>]
