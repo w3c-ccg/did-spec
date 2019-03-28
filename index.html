@@ -186,11 +186,6 @@ Heather Vescent.
 Introduction
     </h1>
 
-    <section>
-      <h2>
-Overview
-      </h2>
-
       <p>
 Conventional <a href="https://en.wikipedia.org/wiki/Identity_management">identity
 management</a> systems are based on centralized authorities such as
@@ -259,9 +254,9 @@ centralized, federated, and decentralized identifiers.
       </p>
 
       <section>
-        <h3>
+        <h2>
 Motivations for DIDs
-        </h3>
+        </h2>
 
         <p>
 The growing need for decentralized identifiers has produced two
@@ -288,44 +283,6 @@ as distributed ledgers.
           </li>
         </ol>
       </section>
-
-      <section>
-        <h3>
-The Role of Human-Friendly Identifiers
-        </h3>
-
-        <p>
-DIDs achieve global uniqueness without the need for a central
-registration authority. This comes, however, at the cost of human
-memorability. The algorithms capable of generating globally unique
-identifiers automatically produce random strings of characters that
-have no human meaning. This demonstrates the axiom about
-identifiers known as <a href="https://en.wikipedia.org/wiki/Zooko%27s_triangle">Zooko's
-Triangle</a>: "human-meaningful, decentralized, secure—pick any
-two".
-        </p>
-
-        <p>
-There are of course many use cases where it is desirable to
-discover a DID when starting from a human-friendly identifier—a
-natural language name, a domain name, or a conventional address for
-a DID controller such as a mobile telephone number, email address,
-Twitter handle, or blog URL. However, the problem of mapping
-human-friendly identifiers to DIDs (and doing so in a way that can
-be verified and trusted) is out-of-scope for this specification.
-        </p>
-
-        <p>
-Solutions to this problem (and there are many) should be defined in
-separate specifications that reference this specification. It is
-strongly recommended that such specifications carefully consider:
-          (a) the numerous security attacks based on deceiving users about
-the true human-friendly identifier for a target entity, and (b) the
-privacy consequences of using human-friendly identifiers that are
-inherently correlatable, especially if they are globally unique.
-        </p>
-      </section>
-    </section>
 
     <section>
       <h2>
@@ -2422,6 +2379,44 @@ recovery. Further specification of this type of control is a matter
 for future work (see section <a href="#time-locks-and-did-document-recovery"></a>).
       </p>
     </section>
+
+    <section>
+      <h2>
+The Role of Human-Friendly Identifiers
+      </h2>
+
+      <p>
+DIDs achieve global uniqueness without the need for a central
+registration authority. This comes, however, at the cost of human
+memorability. The algorithms capable of generating globally unique
+identifiers automatically produce random strings of characters that
+have no human meaning. This demonstrates the axiom about
+identifiers known as <a href="https://en.wikipedia.org/wiki/Zooko%27s_triangle">Zooko's
+Triangle</a>: "human-meaningful, decentralized, secure—pick any
+two".
+      </p>
+
+      <p>
+There are of course many use cases where it is desirable to
+discover a DID when starting from a human-friendly identifier—a
+natural language name, a domain name, or a conventional address for
+a DID controller such as a mobile telephone number, email address,
+Twitter handle, or blog URL. However, the problem of mapping
+human-friendly identifiers to DIDs (and doing so in a way that can
+be verified and trusted) is out-of-scope for this specification.
+      </p>
+
+      <p>
+Solutions to this problem (and there are many) should be defined in
+separate specifications that reference this specification. It is
+strongly recommended that such specifications carefully consider:
+          (a) the numerous security attacks based on deceiving users about
+the true human-friendly identifier for a target entity, and (b) the
+privacy consequences of using human-friendly identifiers that are
+inherently correlatable, especially if they are globally unique.
+      </p>
+    </section>
+
   </section>
 
   <section class="informative">
