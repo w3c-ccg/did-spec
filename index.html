@@ -311,7 +311,7 @@ interact with the entity.
       </pre>
     </section>
 
-    <section>
+    <section class="informative">
       <h2>
 Design Goals
       </h2>
@@ -452,58 +452,6 @@ portability, or simplicity.
     </section>
   </section>
 
-      <!-- section>
-<h2>Example Delegate-Managed DID Document</h2>
-
-<p>
-
-The following example expresses a DID Document that describes the DID above
-where control of the document is delegated to another entity. In
-this case the DID Document describes a <a>dependent</a>—an entity who is not currently
-in a position to control the authentication information for this identifier.
-This DID Document
-was created by a <a>delegate</a>—a separate entity with its own DID
-that serves as a trustee for the dependent. Note that while this DID Document
-asserts a set of service endpoints, it does not yet contain a set of key
-descriptions because the dependent does not yet have its own set of
-private keys.
-
-</p>
-
-<pre class="example nohighlight" title="Basic delegate-managed DID Document">
-{
-"@context": "https://w3id.org/did/v1",
-"id": "did:example:123456789abcdefghi",
-"authorizationCapability": [{
-  // this entity is a delegate and may update any field in this
-  // DID Document using any authentication mechanism understood
-  // by the ledger
-  "permission": "UpdateDidDocument",
-  "entity": "did:example:zxyvwtrkpn987654321"
-}],
-"authentication": [{
-  // this biometric can be used to authenticate as did:...fghi
-  "type": "PseudonymousBiometricTemplate2017",
-  "biometricService": "https://example.com/authenticate",
-  "biometricTemplateShard": "Mjk4MzQyO...5Mzg0MDI5Mwo="
-}],
-"service": [{
-  "type": "ExampleService",
-  "serviceEndpoint": "https://example.com/endpoint/8377464"
-}]
-}
-</pre>
-<p class="issue" title="Make delegation use cases more clear">
-It will probably not be immediately obvious to most developers why delegation
-is important. We should elaborate that there are use cases around DIDs that
-are focused on people that do not have the technological means (yet) to control
-a DID such as the unbanked, refugee use cases, child protection services, and
-other people that are in delicate situations without ready access to
-technology.
-
-</p>
-
-</section-->
   </section>
 
   <section class="informative">
