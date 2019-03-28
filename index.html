@@ -253,11 +253,6 @@ DIDs. This creates an interoperability bridge between the worlds of
 centralized, federated, and decentralized identifiers.
       </p>
 
-    <section>
-      <h2>
-Purpose of This Specification
-      </h2>
-
       <p>
 The first purpose of this specification is to define the generic
 DID scheme and a generic set of operations on DID documents that can be
@@ -273,6 +268,47 @@ distributed ledger or network.
 For a list of DID Methods and their corresponding specifications,
 see the DID Method Registry [[DID-METHOD-REGISTRY]].
       </p>
+
+  <section class="informative">
+    <h2>
+A Simple Example
+    </h2>
+
+    <p>
+A DID is a simple text string that consists of three parts: 1) the URL scheme
+identifier (<code>did</code>), 2) the identifier for the
+DID Method, and 3) the DID Method-specific identifier.
+    </p>
+
+    <pre class="example nohighlight" title="A simple example of a Decentralized Identifier (DID)">
+did:example:123456789abcdefghi
+    </pre>
+
+    <p>
+The DID above resolves to a DID Document. A DID Document contains information
+associated with the DID such as ways to cryptographically authenticate the
+entity in control of the DID, as well as services that can be used to
+interact with the entity.
+    </p>
+
+    <pre class="example nohighlight" title="Minimal self-managed DID Document">
+{
+  "@context": "https://w3id.org/did/v1",
+  "id": "did:example:123456789abcdefghi",
+  "authentication": [{
+    <span class="comment">// used to authenticate as did:...fghi</span>
+    "id": "did:example:123456789abcdefghi#keys-1",
+    "type": "RsaVerificationKey2018",
+    "controller": "did:example:123456789abcdefghi",
+    "publicKeyPem": "-----BEGIN PUBLIC KEY...END PUBLIC KEY-----\r\n"
+  }],
+  "service": [{
+    <span class="comment">// used to retrieve Verifiable Credentials associated with the DID</span>
+    "type": "VerifiableCredentialService",
+    "serviceEndpoint": "https://example.com/vc/"
+  }]
+}
+      </pre>
     </section>
 
     <section>
@@ -281,8 +317,10 @@ Design Goals
       </h2>
 
       <p>
-This section summarizes the design goals and principles of DID
-architecture.
+Decentralized Identifiers are a component of larger systems, such as
+the Verifiable Credentials ecosystem [[?VC-DATA-MODEL]], which have driven
+the design goals for this specification. This section summarizes the
+primary design goals for this specification.
       </p>
 
       <table class="simple">
@@ -414,47 +452,6 @@ portability, or simplicity.
     </section>
   </section>
 
-  <section class="informative">
-    <h1>
-Simple Examples
-    </h1>
-
-    <p>
-This is a simple example of a DID:
-    </p>
-
-    <pre class="example nohighlight" title="A simple example of a Decentralized Identifier (DID)">
-did:example:123456789abcdefghi
-    </pre>
-    <section>
-      <h2>
-Self-Managed DID Document
-      </h2>
-
-      <p>
-Following is an example of a DID Document for the DID
-above. This example assumes that the subject of the DID Document is
-the controller of the private keys for this identifier.
-      </p>
-
-      <pre class="example nohighlight" title="Minimal self-managed DID Document">
-{
-  "@context": "https://w3id.org/did/v1",
-  "id": "did:example:123456789abcdefghi",
-  "authentication": [{
-    // this key can be used to authenticate as did:...fghi
-    "id": "did:example:123456789abcdefghi#keys-1",
-    "type": "RsaVerificationKey2018",
-    "controller": "did:example:123456789abcdefghi",
-    "publicKeyPem": "-----BEGIN PUBLIC KEY...END PUBLIC KEY-----\r\n"
-  }],
-  "service": [{
-    "type": "ExampleService",
-    "serviceEndpoint": "https://example.com/endpoint/8377464"
-  }]
-}
-      </pre>
-    </section>
       <!-- section>
 <h2>Example Delegate-Managed DID Document</h2>
 
