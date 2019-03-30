@@ -333,12 +333,12 @@ Purpose of This Specification
       </h2>
 
       <p>
-The first purpose of this specification is to define the generic
-DID scheme and a generic set of operations on DID documents that can be
+The first purpose of this specification is to define the DID URI
+scheme and a generic set of operations on DID documents that can be
 implemented for any distributed ledger or network capable of
 supporting DIDs. The second purpose of this specification is to
 define the conformance requirements for a DID method
-specification—a separate specification that defines a specific DID
+specification—a separate specification that defines a DID method
 scheme and specific set of DID document operations for a specific
 distributed ledger or network.
       </p>
@@ -733,11 +733,11 @@ enables authentication of the DID subject.
 
     <section>
       <h2>
-The Generic DID Scheme
+The DID URI Scheme
       </h2>
 
       <p>
-The generic <a>DID scheme</a> is a URI scheme conformant with
+The <a>DID URI scheme</a> is a URI scheme conformant with
 [[RFC3986]]. It consists of a DID followed by an optional path and/or
 fragment. The term DID refers only to the identifier conforming to
 the did rule in the ABNF below; when used alone, it does not include
@@ -771,14 +771,14 @@ Paths
       </h2>
 
       <p>
-A generic <a>DID path</a> (the did-path rule in Section <a href="#the-generic-did-scheme"></a>) is identical to a URI path and MUST
+A <a>DID path</a> (the did-path rule in Section <a href="#did-uri-scheme"></a>) is identical to a URI path and MUST
 conform to the ABNF of the path-rootless ABNF rule in [[RFC3986]]. A
 DID path SHOULD be used to address resources available via a DID
 service endpoint. See Section <a href="#service-endpoints"></a>.
       </p>
 
       <p>
-A specific DID scheme MAY specify ABNF rules for DID paths that are
+A DID method scheme MAY specify ABNF rules for DID paths that are
 more restrictive than the generic rules in this section.
       </p>
     </section>
@@ -789,8 +789,8 @@ Fragments
       </h2>
 
       <p>
-A generic <a>DID fragment</a> (the did-fragment rule in Section
-<a href="#the-generic-did-scheme"></a>) is identical to a URI
+A <a>DID fragment</a> (the did-fragment rule in Section
+<a href="#did-uri-scheme"></a>) is identical to a URI
 fragment and MUST conform to the ABNF of the fragment ABNF rule in
 [[RFC3986]]. A DID fragment MUST be used only as a method-independent
 reference into the DID Document to identify a component of a DID Document
@@ -800,7 +800,7 @@ the key for the target component in the DID Document object.
       </p>
 
       <p>
-A specific DID scheme MAY specify ABNF rules for DID fragments that
+A DID method scheme MAY specify ABNF rules for DID fragments that
 are more restrictive than the generic rules in this section.
       </p>
 
@@ -836,8 +836,8 @@ The method name MUST be lowercase.
 
         <li>
 Case sensitivity and normalization of the value of the
-specific-idstring rule in Section <a href="#the-generic-did-scheme">
-          </a> MUST be defined by the governing DID method specification.
+specific-idstring rule in Section <a href="#did-uri-scheme"></a>
+MUST be defined by the governing DID method specification.
         </li>
       </ol>
     </section>
@@ -1920,16 +1920,16 @@ DID Method Schemes
       </h2>
 
       <p>
-A DID method specification MUST define exactly one specific DID
+A DID method specification MUST define exactly one DID method
 scheme identified by exactly one method name (the method rule in
-Section <a href="#the-generic-did-scheme"></a>).
+Section <a href="#did-uri-scheme"></a>).
       </p>
 
       <p>
 Since DIDs are intended for decentralized identity infrastructure, it is NOT
 RECOMMENDED to establish a definitive software registry of unique DID method names.
 Rather, the uniqueness of DID method names should be established via
-human consensus, i.e., a specific DID scheme MUST use a method name
+human consensus, i.e., a DID method scheme MUST use a method name
 that is unique among all DID method names known to the specification
 authors at the time of publication. To facilitate this, we maintain a document
 listing known DID method names and their associated specifications (see Appendix
@@ -1944,19 +1944,19 @@ network to which the DID method specification applies.
       </p>
 
       <p>
-The DID method specification for the specific DID scheme MUST specify
+The DID method specification MUST specify
 how to generate the specific-idstring component of a DID. The
 specific-idstring value MUST be able to be generated without the use
 of a centralized registry service. The specific-idstring value SHOULD
 be globally unique by itself. The fully qualified DID as defined by
-the DID rule in Section <a href="#the-generic-did-scheme"></a> MUST
+the DID rule in Section <a href="#did-uri-scheme"></a> MUST
 be globally unique.
       </p>
 
       <p>
-If needed, a specific DID scheme MAY define multiple specific
-specific-idstring formats. It is RECOMMENDED that a specific DID
-scheme define as few specific-idstring formats as possible.
+If needed, a DID method specification MAY define multiple specific
+specific-idstring formats. It is RECOMMENDED that a DID method
+specification define as few specific-idstring formats as possible.
       </p>
     </section>
 
