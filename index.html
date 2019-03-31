@@ -206,17 +206,18 @@ management</a>.
       </p>
 
       <p>
-Globally distributed ledgers, decentralized P2P networks, and other systems
-with similar capabilities, provide an opportunity for fully <a>decentralized
-identity management</a>. In a decentralized identity system, entities
-(in the sense of discrete identifiable units such as—but not limited to—people
-and organisations) are free to use any shared root of trust, with neither
-centralized authority nor a single point of failure.
-Combining decentralized identity systems enables any entity to create and
-manage their own identifiers on any number of distributed, independent roots of
-trust, an architecture referred to as
-<a href="https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust/blob/master/final-documents/dpki.pdf">
-DPKI (decentralized PKI)</a>.
+The emergence of distributed ledger technology (DLT), sometimes
+referred to as blockchain technology, provides the opportunity for
+fully <a>decentralized identity management</a>. In a decentralized
+identity system, entities (in the sense of discrete identifiable units
+such as—but not limited to—people and organisations) are free to use any
+shared root of trust.
+Globally distributed ledgers, decentralized P2P networks, or other systems
+with similar capabilities, provide the means for managing a root of
+trust with neither centralized authority nor a single point of
+failure. In combination, DLTs and decentralized identity systems
+enable any entity to create and manage their own identifiers on any
+number of distributed, independent roots of trust.
       </p>
 
       <p>
@@ -233,19 +234,20 @@ entity’s desired separation of identities, personas, and contexts.
       </p>
 
       <p>
-DID methods are the mechanism by which a DID (the character string
-identifier) and its associated DID Document are created, read,
-updated, and deactivated in a <a>Decentralized Identifier Registry</a>.
-DID methods are defined using separate DID method specifications for
-specific systems.
+DID methods are the mechanism by which a DID and its associated DID
+Document are created, read, updated, and deactivated on a specific
+distributed ledger or network. DID methods are defined using separate
+DID method specifications.
       </p>
 
       <p>
-Note that DID methods may also be developed for identifiers
-registered in federated or centralized identity management systems.
-For their part, all types of identifier systems may add support for
-DIDs. This creates an interoperability bridge between the worlds of
-centralized, federated, and decentralized identifiers.
+This design eliminates dependence on centralized registries for
+identifiers as well as centralized certificate authorities for key
+management—the standard pattern in hierarchical <a href="https://en.wikipedia.org/wiki/Public_key_infrastructure">PKI (public
+key infrastructure</a>). Because DIDs reside on a distributed ledger,
+each entity may serve as its own root authority—an architecture
+referred to as <a href="https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust/blob/master/final-documents/dpki.pdf">
+DPKI (decentralized PKI)</a>.
       </p>
 
       <section>
