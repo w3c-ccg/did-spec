@@ -1926,17 +1926,6 @@ Section <a href="#the-generic-did-scheme"></a>).
       </p>
 
       <p>
-Since DIDs are intended for decentralized identity infrastructure, it is NOT
-RECOMMENDED to establish a definitive software registry of unique DID method names.
-Rather, the uniqueness of DID method names should be established via
-human consensus, i.e., a specific DID scheme MUST use a method name
-that is unique among all DID method names known to the specification
-authors at the time of publication. To facilitate this, we maintain a document
-listing known DID method names and their associated specifications (see Appendix
-<a href="#registries"></a>).
-      </p>
-
-      <p>
 Since the method name is part of the DID, it SHOULD be as short as
 practical. A method name of five characters or less is RECOMMENDED.
 The method name MAY reflect the name of the distributed ledger or
@@ -2049,6 +2038,38 @@ necessary to establish proof of deactivation.
         </p>
       </section>
     </section>
+
+    <section class="informative">
+      <h2>
+Unique DID Method Names
+      </h2>
+      <p>
+The authors of a new DID method specification are
+expected to use a method name that is unique among all DID method
+names known to them at the time of publication.
+      </p>
+      <p>
+Because there is no central authority for allocating or approving DID
+methods, there is no way to know for certain if a particular DID method
+name is unique. To help with this challenge, the
+<a href="https://www.w3.org/community/credentials/">W3C Credentials Community
+Group</a> maintains a non-authoritative list of known DID
+method names and their associated specifications (see Appendix
+<a href="#registries"></a>).
+      </p>
+      <p>
+The [[DID-METHOD-REGISTRY]] is a tool for implementors to use when coming
+to consensus on a new method name, as well as an informative reference for
+software developers implementing <a href="#did-resolvers"></a> for different
+DID methods.
+The [[DID-METHOD-REGISTRY]] is not a definitive or official list of DID
+methods. Nonetheless, adding DID method names to the [[DID-METHOD-REGISTRY]] is
+encouraged so that other implementors and members of the community have a
+place to see an overview of existing DID methods. The lightweight criteria for
+inclusion are documented in the [[DID-METHOD-REGISTRY]].
+      </p>
+    </section>
+
   </section>
 
   <section>
@@ -2712,7 +2733,7 @@ Purpose
 Method Registry</a>
           </td>
           <td>
-Defines all known DID Methods and contains links to their
+Lists all known DID Methods and contains links to their
 specifications.
           </td>
         </tr>
