@@ -798,114 +798,114 @@ parameters that MUST operate uniformly across all DID methods. (Method-specific
 parameter names are covered in the following section.)
       </p>
 
-        <table class="simple">
-          <thead>
-            <tr>
-              <th>Parameter Name</th>
-              <th>Description</th>
-            </tr>
-          </thead>
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
 
-          <tbody>
-            <tr>
-              <td>
+        <tbody>
+          <tr>
+            <td>
 <code>service</code>
-              </td>
-              <td>
+            </td>
+            <td>
 Selects a <code>service</code> JSON-LD object from the DID Document by id.
-              </td>
-            </tr>
+            </td>
+          </tr>
 
-            <tr>
-              <td>
+          <tr>
+            <td>
 <code>service-type</code>
-              </td>
-              <td>
+            </td>
+            <td>
 Selects all <code>service</code> JSON-LD objects from the DID Document by type.
-              </td>
-            </tr>
+            </td>
+          </tr>
 
-            <tr>
-              <td>
+          <tr>
+            <td>
 <code>key</code>
-              </td>
-              <td>
+            </td>
+            <td>
 Selects a <code>publicKey</code> JSON-LD object from the DID Document by id.
-              </td>
-            </tr>
+            </td>
+          </tr>
 
-            <tr>
-              <td>
+          <tr>
+            <td>
 <code>key-type</code>
-              </td>
-              <td>
+            </td>
+            <td>
 Selects all <code>publicKey</code> JSON-LD objects from the DID Document by type.
-              </td>
-            </tr>
+            </td>
+          </tr>
 
-            <tr>
-              <td>
+          <tr>
+            <td>
 <code>version-id</code>
-              </td>
-              <td>
+            </td>
+            <td>
 Specifies a specific version of a DID Document to be resolved (the version ID
 could be sequential, or a UUID, or method-specific). Note: This parameter may
 not be supported by all DID methods.
-              </td>
-            </tr>
+            </td>
+          </tr>
 
-            <tr>
-              <td>
+          <tr>
+            <td>
 <code>version-time</code>
-              </td>
-              <td>
+            </td>
+            <td>
 Specifies a certain version timestamp of a DID Document to be resolved (i.e.
 the DID Document that was valid for a DID at a certain time). Note: This
 parameter may not be supported by all DID methods.
-              </td>
-            </tr>
+            </td>
+          </tr>
 
-            <tr>
-              <td>
+          <tr>
+            <td>
 <code>content-type</code>
-              </td>
-              <td>
+            </td>
+            <td>
 Specifies a type of content object (other than a DID Document) to be returned
 from the target DID registry. Note: This parameter may not be supported by
 all DID methods.
-              </td>
-            </tr>
+            </td>
+          </tr>
 
-            <tr>
-              <td>
+          <tr>
+            <td>
 <code>content-id</code>
-              </td>
-              <td>
+            </td>
+            <td>
 Specifies the method-specific identifier of a content object (other than a DID
 Document) to be returned from the target DID registry. Note: This parameter
 may not be supported by all DID methods.
-              </td>
-            </tr>
+            </td>
+          </tr>
 
-            <tr>
-              <td>
+          <tr>
+            <td>
 <code>hl</code>
-              </td>
-              <td>
+            </td>
+            <td>
 A resource hash of the resource identified by the DID URL to add integrity
 protection, as specified in [[Hashlink]].
-              </td>
-            </tr>
+            </td>
+          </tr>
 
-          </tbody>
-        </table>
-        
-        <p>
+        </tbody>
+      </table>
+
+      <p>
 The exact processing rules for these parameters are specified in the DID
 Resolution specification.
-        </p>
+      </p>
 
-        <p>
+      <p>
 Note that there may be additional parameters or options that are not part
 of the DID URL but instead passed to a DID resolver “out of band”, i.e.,
 using a resolution protocol or some other mechanism. Such options could
@@ -915,7 +915,7 @@ HTTP headers rather than as part of an HTTP URL. The important distinction
 is that DID parameters that are part of the DID URL specify what resource
 is being identified, whereas DID resolver options that are not part of the
 DID URL control how that resource is dereferenced.
-        </p>
+      </p>
     </section>
 
     <section>
