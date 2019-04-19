@@ -733,35 +733,149 @@ enables authentication of the DID subject.
 
     <section>
       <h2>
-The Generic DID Scheme
+Generic DID Syntax
       </h2>
 
       <p>
 The generic <a>DID scheme</a> is a URI scheme conformant with
-[[RFC3986]]. It consists of a DID followed by an optional path and/or
-fragment. The term DID refers only to the identifier conforming to
-the did rule in the ABNF below; when used alone, it does not include
-a path or fragment. A DID that may optionally include a path and/or
-fragment is called a DID reference.
+[[RFC3986]]. The DID scheme specializes only the scheme and
+authority components of a DID URI—the path-abempty, query,
+and fragment components are identical to the ABNF rules defined
+in [[RFC3986]]. Note that the term “DID” refers only to the URI
+conforming to the did rule in the ABNF below. A DID always identifies
+the DID subject. The term “DID URL”, defined by the did-url rule,
+refers to a URL that begins with a DID followed by one or more
+additional components. A DID URL always identifies the resource to
+be located.
       </p>
 
       <p>
-Following is the ABNF definition using the syntax in [[RFC5234]]
-        (which defines ALPHA as upper or lowercase A-Z).
+The following is the ABNF definition using the syntax in [[RFC5234]]
+which defines ALPHA and DIGIT. All other rule names not defined in
+this ABNF are defined in [[RFC3986]].
       </p>
 
       <pre class="nohighlight">
-did-reference      = did [ "/" did-path ] [ "#" did-fragment ]
-did                = "did:" method ":" specific-idstring
-method             = 1*methodchar
-methodchar         = %x61-7A / DIGIT
-specific-idstring  = idstring *( ":" idstring )
-idstring           = 1*idchar
-idchar             = ALPHA / DIGIT / "." / "-"
+did                = "did:" method-name ":" method-specific-id
+method-name        = 1*method-char
+method-char        = %x61-7A / DIGIT
+method-specific-id = *idchar *( ":" *idchar )
+idchar             = ALPHA / DIGIT / "." / "-" / "_"
+did-url            = did *( ";" param ) path-abempty [ "?" query ] 
+                     [ "#" fragment ]
+param              = param-name [ "=" param-value ]
+param-name         = 1*param-char
+param-value        = *param-char
+param-char         = ALPHA / DIGIT / "." / "-" / "_" / ":" /
+                     pct-encoded
 </pre>
+    </section>
+
+    <section>
+      <h2>
+Method-Specific Syntax
+      </h2>
+
       <p>
-See Sections <a href="#paths"></a> and <a href="#fragments"></a> for the ABNF rules defining DID paths and
-fragments.
+A DID method specification MUST further restrict the generic DID
+syntax by defining its own <code>method-name</code> and its own
+<code>method-specific-id</code> syntax. See Section <a href="#did-methods"></a>.
+      </p>
+    </section>
+
+    <section>
+      <h2>
+Generic DID Parameter Names
+      </h2>
+
+      <p>
+DID URL syntax supports a simple, generalized format for parameters based on the
+matrix parameter syntax ([[MatrixURIs]]) originally proposed in 1996 by Tim
+Berners-Lee and his collaborators. 
+The ABNF above does not specify any parameter names (the <code>param-name</code>
+rule). The following table defines a set of generic DID parameter names for
+parameters that MUST operate uniformly across all DID methods. (Method-specific
+parameter names are covered in the following section.)
+      </p>
+
+        <table class="simple">
+          <thead>
+            <tr>
+              <th>Parameter Name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+
+          <tbody>
+          </tbody>
+        </table>
+        
+        <p>
+The exact processing rules for these parameters are specified in the DID
+Resolution specification.
+        </p>
+
+        <p>
+Note that there may be additional parameters or options that are not part
+of the DID URL but instead passed to a DID resolver “out of band”, i.e.,
+using a resolution protocol or some other mechanism. Such options could
+for example control caching or the desired format of a resolution result.
+This is similar to HTTP, where caching or result format are expressed as
+HTTP headers rather than as part of an HTTP URL. The important distinction
+is that DID parameters that are part of the DID URL specify what resource
+is being identified, whereas DID resolver options that are not part of the
+DID URL control how that resource is dereferenced.
+        </p>
+    </section>
+
+    <section>
+      <h2>
+Method-Specific DID Parameter Names
+      </h2>
+
+      <p>
+A DID method specification MAY specify additional method-specific parameter
+names. A method-specific parameter name MUST be prefixed by the method name
+as defined by the <code>method-name</code> rule.
+      </p>
+
+      <p>
+For example, if the method <code>did:foo:</code> defines the parameter bar,
+the parameter name must be <code>foo:bar</code>. An example DID URL using
+this method and this method-specific parameter would be:
+      </p>
+
+      <p>
+<code>did:foo:21tDAKCERh95uGgKbJNHYp;foo:bar=high</code>
+      </p>
+
+      <p>
+Note that a method-specific parameter name defined by one DID method MAY
+be used by other DID methods. For example:
+      </p>
+
+      <p>
+<code>did:example:21tDAKCERh95uGgKbJNHYp;foo:bar=low</code>
+      </p>
+
+      <p>
+Method-specific parameter names MAY be combined with generic parameter
+names in any order.
+      </p>
+
+      <p>
+<code>did:example:21tDAKCERh95uGgKbJNHYp;service=agent;foo:bar=high</code>
+      </p>
+
+      <p>
+Note that both DID method namespaces and method-specific parameter
+namespaces may include colons, so they may be partitioned hierarchically
+as defined by a DID method specification. Here is an example DID URL that
+illustrates both:
+      </p>
+
+      <p>
+<code>did:foo:baz:21tDAKCERh95uGgKbJNHYp;foo:baz:hex=b612</code>
       </p>
     </section>
 
