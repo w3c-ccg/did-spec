@@ -971,12 +971,12 @@ illustrates both:
 
     <section>
       <h2>
-Paths
+Path
       </h2>
 
       <p>
-A generic <a>DID path</a> (the did-path rule in Section <a href="#the-generic-did-scheme"></a>) is identical to a URI path and MUST
-conform to the ABNF of the path-rootless ABNF rule in [[RFC3986]]. A
+A generic <a>DID path</a> is identical to a URI path and MUST
+conform to the the <code>path-abempty</code> ABNF rule in [[RFC3986]]. A
 DID path SHOULD be used to address resources available via a DID
 service endpoint. See Section <a href="#service-endpoints"></a>.
       </p>
@@ -989,13 +989,12 @@ more restrictive than the generic rules in this section.
 
     <section>
       <h2>
-Fragments
+Fragment
       </h2>
 
       <p>
-A generic <a>DID fragment</a> (the did-fragment rule in Section
-<a href="#the-generic-did-scheme"></a>) is identical to a URI
-fragment and MUST conform to the ABNF of the fragment ABNF rule in
+A generic <a>DID fragment</a> is identical to a URI
+fragment and MUST conform to the the <code>fragment</code> ABNF rule in
 [[RFC3986]]. A DID fragment MUST be used only as a method-independent
 reference into the DID Document to identify a component of a DID Document
 (e.g. a unique key description). To resolve this reference, the complete
