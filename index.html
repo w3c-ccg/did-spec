@@ -972,7 +972,7 @@ The method name MUST be lowercase.
 
         <li>
 Case sensitivity and normalization of the value of the
-specific-idstring rule in Section <a href="#the-generic-did-scheme">
+specific-idstring rule in Section <a href="#generic-did-syntax">
           </a> MUST be defined by the governing DID method specification.
         </li>
       </ol>
@@ -2057,8 +2057,8 @@ DID Method Schemes
 
       <p>
 A DID method specification MUST define exactly one specific DID
-scheme identified by exactly one method name (the method rule in
-Section <a href="#the-generic-did-scheme"></a>).
+scheme identified by exactly one method name (the <code>method-name</code> rule in
+Section <a href="#generic-did-syntax"></a>).
       </p>
 
       <p>
@@ -2085,7 +2085,7 @@ how to generate the specific-idstring component of a DID. The
 specific-idstring value MUST be able to be generated without the use
 of a centralized registry service. The specific-idstring value SHOULD
 be globally unique by itself. The fully qualified DID as defined by
-the DID rule in Section <a href="#the-generic-did-scheme"></a> MUST
+the DID rule in Section <a href="#generic-did-syntax"></a> MUST
 be globally unique.
       </p>
 
