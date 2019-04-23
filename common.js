@@ -84,6 +84,25 @@ var ccg = {
       ],
       status: "CG-DRAFT",
       publisher: "Digital Verification Community Group"
+    },
+    "DRAFT-SPORNY-HASHLINK-02": {
+      title: "Cryptographic Hyperlinks",
+      date: "December 2018",
+      href: "https://tools.ietf.org/html/draft-sporny-hashlink-02",
+      authors: [
+        "Manu Sporny"
+      ],
+      status: "Internet-Draft",
+      publisher: "IETF"
+    },
+    "MATRIX-URIS": {
+      title: "Matrix URIs - Ideas about Web Architecture",
+      date: "December 1996",
+      href: "https://www.w3.org/DesignIssues/MatrixURIs.html",
+      authors: [
+        "Tim Berners-Lee"
+      ],
+      status: "Personal View"
     }
   }
 };
