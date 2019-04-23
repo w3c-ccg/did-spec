@@ -739,11 +739,17 @@ Generic DID Syntax
       <p>
 The generic <a>DID scheme</a> is a URI scheme conformant with
 [[RFC3986]]. The DID scheme specializes only the scheme and
-authority components of a DID URI—the path-abempty, query,
-and fragment components are identical to the ABNF rules defined
-in [[RFC3986]]. Note that the term “DID” refers only to the URI
-conforming to the did rule in the ABNF below. A DID always identifies
-the DID subject. The term “DID URL”, defined by the did-url rule,
+authority components of a DID URI—the <code>path-abempty</code>,
+<code>query</code>, and <code>fragment</code> components are
+identical to the ABNF rules defined
+in [[RFC3986]].
+      </p>
+
+      <p>
+The term <a>DID</a> refers only to the URI
+conforming to the <code>did</code> rule in the ABNF below. A
+DID always identifies the DID subject. The term <a>DID URL</a>,
+defined by the <code>did-url</code> rule,
 refers to a URL that begins with a DID followed by one or more
 additional components. A DID URL always identifies the resource to
 be located.
@@ -790,12 +796,11 @@ Generic DID Parameter Names
 
       <p>
 DID URL syntax supports a simple, generalized format for parameters based on the
-matrix parameter syntax ([[MatrixURIs]]) originally proposed in 1996 by Tim
-Berners-Lee and his collaborators. 
+matrix parameter syntax ([[MatrixURIs]]).
 The ABNF above does not specify any parameter names (the <code>param-name</code>
 rule). The following table defines a set of generic DID parameter names for
 parameters that MUST operate uniformly across all DID methods. (Method-specific
-parameter names are covered in the following section.)
+parameter names are covered in <a href="#method-specific-did-parameter-names"></a>.)
       </p>
 
       <table class="simple">
@@ -905,7 +910,7 @@ The exact processing rules for these parameters are specified in the DID
 Resolution specification.
       </p>
 
-      <p>
+      <p class="note">
 Note that there may be additional parameters or options that are not part
 of the DID URL but instead passed to a DID resolver “out of band”, i.e.,
 using a resolution protocol or some other mechanism. Such options could
@@ -940,7 +945,7 @@ this method and this method-specific parameter would be:
       </p>
 
       <p>
-Note that a method-specific parameter name defined by one DID method MAY
+A method-specific parameter name defined by one DID method MAY
 be used by other DID methods. For example:
       </p>
 
@@ -958,7 +963,7 @@ names in any order.
       </p>
 
       <p>
-Note that both DID method namespaces and method-specific parameter
+Both DID method namespaces and method-specific parameter
 namespaces may include colons, so they may be partitioned hierarchically
 as defined by a DID method specification. Here is an example DID URL that
 illustrates both:
