@@ -85,7 +85,7 @@ var ccg = {
       status: "CG-DRAFT",
       publisher: "Digital Verification Community Group"
     },
-    "DRAFT-SPORNY-HASHLINK-02": {
+    "HASHLINK": {
       title: "Cryptographic Hyperlinks",
       date: "December 2018",
       href: "https://tools.ietf.org/html/draft-sporny-hashlink-02",
