@@ -798,15 +798,28 @@ Generic DID Parameter Names
 DID URL syntax supports a simple, generalized format for parameters based on the
 matrix parameter syntax ([[MATRIX-URIS]]).
 The ABNF above does not specify any parameter names (the <code>param-name</code>
-rule). The following table defines a set of generic DID parameter names for
-parameters that MUST operate uniformly across all DID methods. (Method-specific
-parameter names are covered in <a href="#method-specific-did-parameter-names"></a>.)
+rule).
+      </p>
+      <p>
+Some generic DID parameter names (e.g. for service selection) are completely
+independent of any specific DID method and MUST always function the same way
+for all DIDs.
+Others (e.g. for versioning) MAY be supported by
+certain DID methods, but MUST operate uniformly across those DID methods that
+do support them.
+      </p>
+      <p>
+Parameter names that are completely method-specific are covered in
+<a href="#method-specific-did-parameter-names"></a>.
+      </p>
+      <p>
+The following table defines a set of generic DID parameter names:
       </p>
 
       <table class="simple">
         <thead>
           <tr>
-            <th>Parameter Name</th>
+            <th>Generic DID Parameter Name</th>
             <th>Description</th>
           </tr>
         </thead>
