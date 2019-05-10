@@ -776,6 +776,13 @@ param-value        = *param-char
 param-char         = ALPHA / DIGIT / "." / "-" / "_" / ":" /
                      pct-encoded
 </pre>
+
+      <p class="issue" data-number="198">
+The grammar currently allows an empty <code>method-specific-id</code>,
+e.g. <code>did:example:</code> would be a valid DID that could identify
+the DID method itself.
+      </p>
+
     </section>
 
     <section>
@@ -868,6 +875,11 @@ this method and this method-specific parameter would be:
 <code>did:foo:21tDAKCERh95uGgKbJNHYp;foo:bar=high</code>
       </p>
 
+      <p class="issue" data-number="199">
+Consider using kebab-case style instead of colon separator,
+e.g. <code>foo-bar</code> instead of <code>foo:bar</code>.
+      </p>
+
       <p>
 A method-specific parameter name defined by one DID method MAY
 be used by other DID methods. For example:
@@ -897,6 +909,12 @@ illustrates both:
 <code>did:foo:baz:21tDAKCERh95uGgKbJNHYp;foo:baz:hex=b612</code>
       </p>
     </section>
+
+      <p class="issue" data-number="200">
+Review what exactly we want to say about method-specific parameters
+defined by one method but used in a DID URL with a different method.
+Also discuss hierarchical method namespaces in DID parameter names.
+      </p>
 
     <section>
       <h2>
