@@ -1250,19 +1250,18 @@ identifies the controller of the corresponding private key.
         </li>
 
         <li>
-The value property of a public key MUST be exactly one of
-<code>publicKeyPem</code>, <code>publicKeyJwk</code>,
-<code>publicKeyHex</code>, <code>publicKeyBase64</code>,
-<code>publicKeyBase58</code>, <code>publicKeyMultibase</code>, depending
-on the format and encoding of the public key.
-        </li>
-
-        <li>
 A registry of key types and formats is available in Appendix
 <a href="#registries"></a>.
         </li>
       </ol>
-
+      <p class="note">
+        The following is a non-exhaustive list of public keys
+        used by the community:
+        <code>publicKeyPem</code>, <code>publicKeyJwk</code>,
+        <code>publicKeyHex</code>, <code>publicKeyBase64</code>,
+        <code>publicKeyBase58</code>, <code>publicKeyMultibase</code>,
+        <code>ethereumAddress</code>.
+      </p>
       <p>
 Example:
       </p>
