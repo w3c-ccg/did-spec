@@ -3,9 +3,12 @@
   "version": "1.0.1-0",
   "description": "DID Context",
   "main": "js",
+  "module": "./dist/module.js",
   "files": [
     "contexts",
-    "js"
+    "dist/module.js",
+    "js/constants.js",
+    "js/index.js"
   ],
   "repository": {
     "type": "git",
@@ -14,5 +17,16 @@
   "bugs": {
     "url": "https://github.com/w3c-ccg/did-spec/issues"
   },
-  "homepage": "https://github.com/w3c-ccg/did-spec#readme"
+  "homepage": "https://github.com/w3c-ccg/did-spec#readme",
+  "devDependencies": {
+    "json-loader": "^0.5.7",
+    "rollup": "^1.11.3",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.2"
+  },
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "webpack && rollup -c"
+  }
 }
