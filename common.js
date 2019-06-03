@@ -27,6 +27,19 @@ var ccg = {
       status: "FPWD",
       publisher: "Verifiable Claims Working Group"
     },
+    "VC-DATA-MODEL": {
+      title: "Verifiable Credentials Data Model",
+      href: "https://www.w3.org/TR/verifiable-claims-data-model/",
+      authors: [
+        "Manu Sporny",
+        "Dave Longley",
+        "Grant Noble",
+        "David Chadwick",
+        "Daniel C. Burnett"
+      ],
+      status: "FPWD",
+      publisher: "Verifiable Claims Working Group"
+    },
     // aliases to known references
     "HTTP-SIGNATURES": {
       aliasOf: "http-signatures"
@@ -84,6 +97,15 @@ var ccg = {
       ],
       status: "CG-DRAFT",
       publisher: "Digital Verification Community Group"
+    },
+    "MATRIX-URIS": {
+      title: "Matrix URIs - Ideas about Web Architecture",
+      date: "December 1996",
+      href: "https://www.w3.org/DesignIssues/MatrixURIs.html",
+      authors: [
+        "Tim Berners-Lee"
+      ],
+      status: "Personal View"
     }
   }
 };
