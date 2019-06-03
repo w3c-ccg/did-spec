@@ -14,6 +14,9 @@
     "Ed25519VerificationKey2018": "sec:Ed25519VerificationKey2018",
     "RsaSignature2018": "sec:RsaSignature2018",
     "RsaVerificationKey2018": "sec:RsaVerificationKey2018",
+    "EcdsaSecp256k1Signature2019": "sec:EcdsaSecp256k1Signature2019",
+    "SchnorrSecp256k1Signature2019": "sec:SchnorrSecp256k1Signature2019",
+    "Secp256k1VerificationKey2018": "sec:Secp256k1VerificationKey2018",
     "ServiceEndpointProxyService": "didv:ServiceEndpointProxyService",
 
     "allowedAction": "sec:allowedAction",
