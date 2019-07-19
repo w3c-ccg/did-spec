@@ -657,7 +657,7 @@ Resolution specification.
 
       <p class="note">
 Note that there may be additional parameters or options that are not part
-of the DID URL but instead passed to a DID resolver “out of band”, i.e.,
+of the DID URL but instead passed to a DID resolver "out of band", i.e.,
 using a resolution protocol or some other mechanism. Such options could
 for example control caching or the desired format of a resolution result.
 This is similar to HTTP, where caching or result format are expressed as
@@ -737,7 +737,7 @@ Path
 
       <p>
 A generic <a>DID path</a> is identical to a URI path and MUST
-conform to the the <code>path-abempty</code> ABNF rule in [[RFC3986]]. A
+conform to the <code>path-abempty</code> ABNF rule in [[RFC3986]]. A
 DID path SHOULD be used to address resources available via a DID
 service endpoint. See Section <a href="#service-endpoints"></a>.
       </p>
@@ -758,7 +758,7 @@ Query
 
       <p>
 A generic <a>DID query</a> is identical to a URI query and MUST
-conform to the the <code>query</code> ABNF rule in [[RFC3986]]. A
+conform to the <code>query</code> ABNF rule in [[RFC3986]]. A
 DID query SHOULD be used to address resources available via a DID
 service endpoint. See Section <a href="#service-endpoints"></a>.
       </p>
@@ -779,7 +779,7 @@ Fragment
 
       <p>
 A generic <a>DID fragment</a> is identical to a URI
-fragment and MUST conform to the the <code>fragment</code> ABNF rule in
+fragment and MUST conform to the <code>fragment</code> ABNF rule in
 [[RFC3986]]. A DID fragment MUST be used only as a method-independent
 reference into the DID Document to identify a component of a DID Document
 (e.g. a unique key description). To resolve this reference, the complete
@@ -910,7 +910,7 @@ containing machine-readable information about the context.
         </dl>
 
       <p>
-  DID Documents MUST include the <code>@context</code> property.  The
+  DID Documents MUST include the <code>@context</code> property. The
   <a href="https://www.w3.org/TR/json-ld/#the-context">JSON-LD Context</a>
   is described in detail in the [[!JSON-LD]] specification. The rules for this
   statement are:
@@ -1100,7 +1100,7 @@ Public keys are used for digital signatures, encryption and other
 cryptographic operations, which in turn are the basis for purposes
 such as authentication (see Section <a href="#authentication"></a>)
 or establishing secure communication with <a>service endpoints</a>
-        (see Section <a href="#service-endpoints"></a>). In addition, public
+(see Section <a href="#service-endpoints"></a>). In addition, public
 keys may play a role in authorization mechanisms of DID CRUD
 operations (see Section <a href="#did-operations"></a>). This may be
 defined by DID Method specifications.
@@ -1262,7 +1262,7 @@ While the <code>controller</code> field may seem redundant in some of the
 examples above, keys may be expressed in a DID Document where the
 controller is described in another DID Document. Linked Data Proof
 libraries typically expect the <code>controller</code> field to always
-exist and may throw an exception if it is missing. Futhermore, per
+exist and may throw an exception if it is missing. Furthermore, per
 the requirement that DID Documents be interpretable as either a graph
 or a tree, a default <code>controller</code> field cannot be inferred by
 using a key's position in a tree.
@@ -1553,7 +1553,7 @@ The key for this property MUST be updated.
 
         <li>
 The value of this key MUST follow the formatting rules (3, 4, 5)
-from section <a href="#created-optional"></a>.
+from Section <a href="#created-optional"></a>.
         </li>
       </ol>
 
@@ -1580,7 +1580,7 @@ integrity of the DID Document according to either:
 
       <ol start="1">
         <li>
-The subject as defined in section <a href="#service-endpoints"></a>, or if not present:
+The subject as defined in Section <a href="#service-endpoints"></a>, or if not present:
         </li>
 
         <li>
@@ -1893,7 +1893,7 @@ require them.
 The <code>@protected</code> properties feature of JSON-LD 1.1 is used to ensure
 that terms defined by this specification cannot be overridden. This means
 that as long as the same <code>@context</code> declaration is made at the top
-of a <a>DID document</a>, that interoperability is guaranteed between implementions
+of a <a>DID document</a>, that interoperability is guaranteed between implementations
 which use a JSON-LD processor and implementations which do not.
         </li>
       </ul>
@@ -2116,7 +2116,7 @@ designed to operate under the general Internet threat model used by
 many IETF standards. We assume uncompromised endpoints, but allow
 messages to be read or corrupted on the network. Protecting against an
 attack when a system is compromised requires external key-signing
-hardware. See also section <a href="#key-revocation-and-recovery"></a>
+hardware. See also Section <a href="#key-revocation-and-recovery"></a>
 regarding key revocation and recovery. For their part, the DLTs hosting
 DIDs and DID Documents have special security properties for preventing
 active attacks. Their design uses public/private key cryptography to
@@ -2176,8 +2176,8 @@ mitigation has been deployed.
 
         <li>
 This section MUST provide integrity protection and update
-authentication for all operations required by Section 7 of this
-specification (DID Operations).
+authentication for all operations required by
+Section <a href="#did-operations"></a>.
         </li>
 
         <li>
@@ -2189,7 +2189,7 @@ resources SHOULD be discussed in relation to denial of service.
         <li>
 Method-specific endpoint authentication MUST be discussed. Where
 DID methods make use of DLTs with varying network topology, sometimes
-offered as "light node" or “ <a href="https://en.bitcoin.it/wiki/Thin_Client_Security">thin client</a> ”
+offered as "light node" or "<a href="https://en.bitcoin.it/wiki/Thin_Client_Security">thin client</a>"
 implementations to reduce required computing resources, the security
 assumptions of the topology available to implementations of the DID
 method MUST be discussed.
@@ -2446,7 +2446,7 @@ that use the same method. Access control and key recovery in a DID
 method specification MAY also include a time lock feature to protect
 against key compromise by maintaining a second track of control for
 recovery. Further specification of this type of control is a matter
-for future work (see section <a href="#time-locks-and-did-document-recovery"></a>).
+for future work (see Section <a href="#time-locks-and-did-document-recovery"></a>).
       </p>
     </section>
 
