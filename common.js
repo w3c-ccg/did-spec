@@ -116,6 +116,17 @@ var ccg = {
       ],
       status: "Internet-Draft",
       publisher: "IETF"
+    },
+    "DNS-DID": {
+      title: "The Decentralized Identifier (DID) in the DNS",
+      date: "February 2019",
+      href: "https://datatracker.ietf.org/doc/draft-mayrhofer-did-dns/",
+      authors: [
+        "Alexander Mayrhofer",
+        "Dimitrij Klesev",
+        "Markus Sabadello"
+      ],
+      status: "Internet-Draft"
     }
   }
 };
