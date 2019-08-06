@@ -139,19 +139,21 @@
 <body>
   <section id='abstract'>
     <p>
-A Decentralized Identifier (DID) is a type of Uniform Resource Locator (URL)
-that is highly available and cryptographically verifiable.
-DIDs that are managed through the use Distributed Ledger Technologies (DLTs)
-are often also independent from any centralized registry, identity provider,
-or certificate authority. DIDs resolve to DID Documents, which describe how
-any entity may securely interact with the entity that is in control of the DID.
-DIDs are useful when you need strong cryptographic guarantees on interactions
-such as when authenticating with a system or when checking a digital signature
-on a document.
+Decentralized Identifiers (DIDs) are a new type of identifier for
+verifiable, decentralized digital identity. These new identifiers
+are designed to enable the controller of a DID to prove control over
+it and to be implemented independently of any centralized registry,
+identity provider, or certificate authority. DIDs are URLs that relate
+a DID subject to means for trustable interactions with that subject.
+DIDs resolve to DID Documents &mdash; simple documents that describe how to
+use that specific DID. Each DID Document may express cryptographic
+material, verification methods, and/or service endpoints. These provide
+a set of mechanisms which enable a DID controller to prove control of the
+DID. Service endpoints enable trusted interactions with the DID subject.
     </p>
     <p>
-This document specifies a common data model, concrete syntaxes, and operations
-that all systems providing DIDs must support.
+This document specifies a common data model, format, and operations that
+all DIDs support. 
     </p>
   </section>
 
