@@ -266,12 +266,12 @@ centralized, federated, and decentralized identifiers.
       <p>
 The first purpose of this specification is to define the generic
 DID scheme and a generic set of operations on DID documents that can be
-implemented for any <a>Decentralized Identifier Registry</a>. The second
+implemented for any <a>DID Registry</a>. The second
 purpose of this specification is to
 define the conformance requirements for a DID method
 specification—a separate specification that defines a specific DID
 scheme and specific set of DID document operations for a specific
-<a>Decentralized Identifier Registry</a>.
+<a>DID Registry</a>.
       </p>
 
       <p class="note">
@@ -342,7 +342,7 @@ interact with the entity.
 
     <pre class="example nohighlight" title="Minimal self-managed DID Document">
 {
-  "@context": "https://w3id.org/did/v1",
+  "@context": "https://www.w3.org/2019/did/v1",
   "id": "did:example:123456789abcdefghi",
   "authentication": [{
     <span class="comment">// used to authenticate as did:...fghi</span>
@@ -498,8 +498,24 @@ portability, or simplicity.
         </tbody>
       </table>
     </section>
-  </section>
 
+    <section>
+      <h3>Interoperability</h3>
+          <p>Interoperability of implementations for DIDs and DID Documents will be tested by evaluating an implementation's ability to create and parse DIDs and DID Documents that conform to the specification. Interoperability for DID methods will be determined by evaluating each DID method's specification to determine, at a minimum, </p>
+          <ol>
+              <li> the DID method name is unique and not used by an existing, incompatible DID method, </li>
+              <li> the required operations are supported,</li>
+              <li> operations requiring descriptions are described,</li>
+              <li> the specification is specific, detailed, and complete enough for independent implementation, and</li>
+              <li> the specification contains sections describing security and privacy considerations.</li>
+          </ol>
+              
+              
+          <p>Interoperability for producers and consumers of DIDs and DID Documents is provided by ensuring the DIDs and DID Documents conform. Interoperability for method specifications is provided by the details in each method specification. It is understood that, just like a web browser is not required to implement all known URI schemes, conformant software that works with DIDs is not required to implement all known DID methods. However, all implementations of a given DID method must be interoperable for that method.</p>
+          
+</section>
+  </section>
+    
   </section>
 
   <section class="informative">
@@ -614,7 +630,7 @@ param-char         = ALPHA / DIGIT / "." / "-" / "_" / ":" /
 
       <p class="issue" data-number="198">
 The grammar currently allows an empty <code>method-specific-id</code>,
-e.g. <code>did:example:</code> would be a valid DID that could identify
+e.g., <code>did:example:</code> would be a valid DID that could identify
 the DID method itself.
       </p>
 
@@ -701,7 +717,7 @@ not be supported by all DID methods.
 <code>version-time</code>
             </td>
             <td>
-Identifies a certain version timestamp of a DID Document to be resolved (i.e.
+Identifies a certain version timestamp of a DID Document to be resolved (i.e.,
 the DID Document that was valid for a DID at a certain time). Note: This
 parameter may not be supported by all DID methods.
             </td>
@@ -710,8 +726,7 @@ parameter may not be supported by all DID methods.
       </table>
 
       <p>
-The exact processing rules for these parameters are specified in the DID
-Resolution specification.
+The exact processing rules for these parameters are specified in [[DID-RESOLUTION]].
       </p>
 
       <p class="note">
@@ -750,7 +765,7 @@ this method and this method-specific parameter would be:
 
       <p class="issue" data-number="199">
 Consider using kebab-case style instead of colon separator,
-e.g. <code>foo-bar</code> instead of <code>foo:bar</code>.
+e.g., <code>foo-bar</code> instead of <code>foo:bar</code>.
       </p>
 
       <p>
@@ -842,9 +857,10 @@ fragment and MUST conform to the <code>fragment</code> ABNF rule in
 [[RFC3986]]. Implementers are strongly discouraged from using a DID fragment
 for anything other than a method-independent
 reference into the DID Document to identify a component of a DID Document
-(e.g. a unique key description). To resolve this reference, the complete
-DID URL including the DID fragment MUST be used as the value of
-the key for the target component in the DID Document object.
+(e.g. a unique key description or service endpoint). To resolve this reference,
+the complete DID URL including the DID fragment MUST be used as input to the
+DID URL dereferencing algorithm (see [[DID-RESOLUTION]]) for the target
+component in the DID Document object.
       </p>
 
       <p>
@@ -899,17 +915,18 @@ Persistence
       </h2>
 
       <p>
-A DID is expected to be persistent and immutable, i.e., bound to the subject once
-and never changed (forever).
+A DID is expected to be persistent and immutable, i.e., bound exclusively
+and permanently to its one and only subject. Even after a DID has been
+deactivated, it is intended that it never be repurposed.
       </p>
 
       <p>
 Ideally a DID would be a completely
 abstract decentralized identifier (like a UUID) that could be bound
-to multiple underlying <a>Decentralized Identifier Registries</a> over time,
+to multiple underlying <a>DID Registries</a> over time,
 thus maintaining its persistence independent of any particular system.
 However registering the same identifier on multiple
-<a>Decentralized Identifier Registries</a> introduces extremely hard entityship and
+<a>DID Registries</a> introduces extremely hard entityship and
 <a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types%23SOA">start-of-authority</a>
 (SOA) problems. It also greatly increases implementation complexity
 for developers.
@@ -918,7 +935,7 @@ for developers.
       <p>
 To avoid these issues, it is RECOMMENDED that <a>DID method</a>
 specifications only produce DIDs and <a>DID methods</a> bound to strong,
-stable <a>Decentralized Identifier Registries</a> capable of making the highest level of
+stable <a>DID Registries</a> capable of making the highest level of
 commitment to persistence of the DID and DID method over time.
       </p>
 
@@ -926,10 +943,10 @@ commitment to persistence of the DID and DID method over time.
 Although not included in this version, future versions of this
 specification may support a DID Document equivID property to
 establish verifiable equivalence relations between DIDs
-representing the same subject on multiple <a>Decentralized Identifier
+representing the same subject on multiple <a>DID
 Registries</a>. Such equivalence relations can produce the practical
 equivalent of a single persistent abstract DID. See Future Work
-        (Section <a href="#future-work"></a>).
+(Section <a href="#future-work"></a>).
       </p>
     </section>
   </section>
@@ -970,10 +987,10 @@ containing machine-readable information about the context.
         </dl>
 
       <p>
-  DID Documents MUST include the <code>@context</code> property. The
-  <a href="https://www.w3.org/TR/json-ld/#the-context">JSON-LD Context</a>
-  is described in detail in the [[!JSON-LD]] specification. The rules for this
-  statement are:
+DID Documents MUST include the <code>@context</code> property. The
+<a href="https://www.w3.org/TR/json-ld/#the-context">JSON-LD Context</a>
+is described in detail in the [[!JSON-LD]] specification. The rules for this
+statement are:
       </p>
 
       <ol start="1">
@@ -997,7 +1014,7 @@ Example (using an example URL):
 
       <pre class="example nohighlight">
 {
-  "@context": "https://w3id.org/did/v1"
+  "@context": "https://www.w3.org/2019/did/v1"
 }
 </pre>
       <p>
@@ -1033,8 +1050,8 @@ The value of this key MUST be a valid DID.
         </li>
 
         <li>
-When this DID Document is registered with the target <a>Decentralized
-Identifier Registry</a>, the registered DID MUST match this DID subject
+When this DID Document is registered with the target <a>DID
+Registry</a>, the registered DID MUST match this DID subject
 value.
         </li>
       </ol>
@@ -1056,78 +1073,50 @@ resolved DID Document MUST contain a valid <code>id</code> property.
       </p>
     </section>
     <!-- section>
-<h2>Delegates</h2>
-
-<p class="issue">
+      <h2>Delegates</h2>
+        <p class="issue">
 The way that Delegates are handled is changing. The feature is still supported,
 but via the `authorizationCapability` field rather than the more specialized
 `guardian` field.
-
-</p>
-
-<p>
-
+        </p>
+        <p>
 A delegate is an entity, such as a parent or aid organization, that creates and
 maintains a DID Document for a dependent who is not in a position to hold
 or control authentication credentials (e.g., cryptographic keys).
-
-</p>
-
-<p>
-
+        </p>
+        <p>
 The rules for a delegate are:
-
-</p>
-
-<ol start="1">
-<li>
-
-
+        </p>
+        <ol start="1">
+          <li>
 A DID Document that includes an
 <code>authentication</code> field
 (Section <a href="#authentication"></a>) MAY list one or
 more delegates via the <code>authorizationCapability</code> field.
-
-</li>
-
-<li>
-
-
+          </li>
+          <li>
 A DID Document that does not include an
 <code>authentication</code> MUST have a delegate.
-
-</li>
-
-<li>
-
-
+          </li>
+          <li>
 The <code>authorizationCapability</code> field must contain a capability for the
 delegate that includes <code>UpdateDidDocument</code> as the capability,
 the DID of the delegate as the <code>entity</code>, and MAY include a
 more specific set of <code>authentication</code>s that the
 delegate MAY use to authenticate when updating the DID Document.
-
-</li>
-
-<li>
-
-
+          </li>
+          <li>
 The delegate DID MUST resolve to a DID Document that has a
 <code>authentication</code> property containing at least one value,
 i.e., the delegate relationships must not be nested.
-
-</li>
-</ol>
-
-<p>
-
+          </li>
+        </ol>
+        <p>
 Example:
-
-</p>
-
+        </p>
 <pre class="example nohighlight" title="Basic DID Document">
 {
-"@context": "https://w3id.org/did/v1",
+"@context": "https://www.w3.org/2019/did/v1",
 "id": "did:example:123456789abcdefghi",
 "authorizationCapability": [{
   // this entity is a delegate and may update any field in this
@@ -1148,7 +1137,7 @@ Example:
 }]
 }
 </pre>
-</section -->
+    </section -->
 
     <section>
       <h2>
@@ -1221,7 +1210,7 @@ Example:
 
       <pre class="example nohighlight" title="Various public keys">
 {
-  "@context": ["https://w3id.org/did/v1", "https://w3id.org/security/v1"],
+  "@context": ["https://www.w3.org/2019/did/v1", "https://w3id.org/security/v1"],
   "id": "did:example:123456789abcdefghi",
   <span class="comment">...</span>
   "publicKey": [{
@@ -1292,7 +1281,7 @@ Assume <em>value</em> is a URL.
             <li>
 Dereference the URL and retrieve the <code>publicKey</code>
 properties associated with the URL (e.g., process the
-            <code>publicKey</code> property at the top-level of the
+<code>publicKey</code> property at the top-level of the
 dereferenced document).
             </li>
 
@@ -1301,7 +1290,7 @@ Iterate through each public key object.
               <ol>
                 <li>
 If the <code>id</code> property of the object matches
-                <em>value</em>, set <em>result</em> to the object.
+<em>value</em>, set <em>result</em> to the object.
                 </li>
               </ol>
             </li>
@@ -1310,9 +1299,9 @@ If the <code>id</code> property of the object matches
 
         <li>
 If <em>result</em> does not contain at least the <code>id</code>,
-        <code>type</code>, and <code>controller</code> properties as well as any
+<code>type</code>, and <code>controller</code> properties as well as any
 mandatory public cryptographic material, as determined by the
-        <em>result</em>'s <code>type</code> property, throw an error.
+<em>result</em>'s <code>type</code> property, throw an error.
         </li>
       </ol>
 
@@ -1340,14 +1329,14 @@ Authentication
       </h2>
 
       <p>
-Authentication is the mechanism by which a <a href="#did-subject">DID subject</a> can
-cryptographically prove that they are associated with a DID.
+Authentication is the mechanism by which the controller(s) of a DID can
+cryptographically prove that they are associated with that DID.
 See Section <a href="#binding-of-identity"></a>. Note
-that Authentication is separate from Authorization because the subject
+that Authentication is separate from Authorization because the controllers
 may wish to enable others to update their DID Document (for
 example, to assist with key recovery as discussed in Section
 <a href="#key-revocation-and-recovery"></a>) without enabling them to prove
-control (and thus be able to impersonate the subject).
+control (and thus be able to impersonate the controllers).
       </p>
 
       <p>
@@ -1377,7 +1366,7 @@ Example:
 
       <pre class="example nohighlight" title="Authentication field containing three verification methods">
 {
-  "@context": "https://w3id.org/did/v1",
+  "@context": "https://www.w3.org/2019/did/v1",
   "id": "did:example:123456789abcdefghi",
   <span class="comment">...</span>
   "authentication": [
@@ -1430,14 +1419,14 @@ Authorization and Delegation, which may be layered:
 
       <ol>
         <li>
-A <a>Decentralized Identifier Registry</a> could implement a coarse
+A <a>DID Registry</a> could implement a coarse
 grained <code>controller</code> pattern by enabling DID documents to
 express the DID of another DID controller that controls it, or
 additionally,
         </li>
 
         <li>
-A <a>Decentralized Identifier Registry</a> could implement a
+A <a>DID Registry</a> could implement a
 Capabilities-based approach that enables further fine-grained control
 of authorization and delegation.
         </li>
@@ -1449,7 +1438,7 @@ Example:
 
       <pre class="example nohighlight" title="DID Document with a controller property">
 {
-  "@context": "https://w3id.org/did/v1",
+  "@context": "https://www.w3.org/2019/did/v1",
   "id": "did:example:123456789abcdefghi",
   "controller": "did:example:bcehfew7h32f32h7af3",
   "service": [{
@@ -1488,7 +1477,7 @@ of service endpoints.
 
         <li>
 Each service endpoint MUST include <code>id</code>,
-        <code>type</code>, and <code>serviceEndpoint</code> properties, and
+<code>type</code>, and <code>serviceEndpoint</code> properties, and
 MAY include additional properties.
         </li>
 
@@ -1662,11 +1651,11 @@ integrity of the DID Document according to either:
 
       <ol start="1">
         <li>
-The subject as defined in Section <a href="#service-endpoints"></a>, or if not present:
+The subject as defined in Section <a href="#did-subject"></a>, or:
         </li>
 
         <li>
-The delegate as defined in section 4.3.
+The controller as defined in Section <a href="#authorization-and-delegation"></a>, if present.
         </li>
       </ol>
 
@@ -1777,7 +1766,7 @@ Let us assume that we start with the following <a>DID Document</a>:
       </pre>
       <p>
 The contents of the <code>publicKey</code>,
-        <code>authentication</code>, and <code>service</code> properties are
+<code>authentication</code>, and <code>service</code> properties are
 not important for the purposes of this section. What is important is
 that the object above is a valid <a>DID Document</a>. Let's assume
 that a developer wanted to extend the <a>DID Document</a> to express
@@ -1802,7 +1791,7 @@ Now that the JSON-LD Context has been created, the developer MUST
 publish it somewhere that is accessible to any <a>DID Document</a>
 processor. For this example, let us assume that the JSON-LD Context
 above is published at the following URL:
-        <code>did:example:contexts:987654321</code>. At this point, extending
+<code>did:example:contexts:987654321</code>. At this point, extending
 the first example in this section is a simple matter of including the
 context above and adding the new property to the <a>DID Document</a>.
       </p>
@@ -1846,7 +1835,7 @@ Context overrides the expanded URL for a term specified in this
 specification. To avoid the possibility of accidentally overriding
 terms, developers SHOULD scope their extensions. For example,
 the following extension scopes the new
-        <code>PhotoStreamService</code> term so that it may only be used
+<code>PhotoStreamService</code> term so that it may only be used
 within the <code>service</code> property:
       </p>
 
@@ -2001,7 +1990,7 @@ Section <a href="#generic-did-syntax"></a>).
       <p>
 Since the method name is part of the DID, it SHOULD be as short as
 practical. A method name of five characters or less is RECOMMENDED.
-The method name MAY reflect the name of the <a>Decentralized Identifier
+The method name MAY reflect the name of the <a>DID
 Registry</a> to which the DID method specification applies.
       </p>
 
@@ -2028,7 +2017,7 @@ DID Operations
 
       <p>
 To enable the full functionality of DIDs and DID Documents on a
-particular <a>Decentralized Identifier Registry</a>, a
+particular <a>DID Registry</a>, a
 DID method specification MUST specify how each of the following
 <a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete">
 CRUD</a> operations is performed by a client. Each operation MUST be
@@ -2070,7 +2059,7 @@ Create
 
         <p>
 The DID method specification MUST specify how a client creates a DID
-and its associated DID Document on the <a>Decentralized Identifier Registry</a>, including all
+and its associated DID Document on the <a>DID Registry</a>, including all
 cryptographic operations necessary to establish proof of control.
         </p>
       </section>
@@ -2082,7 +2071,7 @@ Read/Verify
 
         <p>
 The DID method specification MUST specify how a client uses a DID to
-request a DID Document from the <a>Decentralized Identifier Registry</a>, including how the
+request a DID Document from the <a>DID Registry</a>, including how the
 client can verify the authenticity of the response.
         </p>
       </section>
@@ -2094,8 +2083,8 @@ Update
 
         <p>
 The DID method specification MUST specify how a client can update a
-DID Document on the <a>Decentralized Identifier Registry</a>,
-including all cryptographic operations necessary to establish proof
+DID Document on the <a>DID Registry</a>, 
+including all cryptographic operations necessary to establish proof 
 of control, <em>or</em>  state that updates are not possible.
         </p>
       </section>
@@ -2108,8 +2097,8 @@ Deactivate
         <p>
 Although a core feature of distributed ledgers is immutability, the
 DID method specification MUST specify how a client can deactivate a DID
-on the <a>Decentralized Identifier Registry</a>, including all cryptographic
-operations necessary to establish proof of deactivation <em>or</em> state that
+on the <a>DID Registry</a>, including all cryptographic
+operations necessary to establish proof of deactivation <em>or</em> state that 
 deactivation is not possible.
         </p>
       </section>
@@ -2154,33 +2143,17 @@ DID Resolvers
     </h1>
 
     <p>
-A DID resolver is a software component with an API designed to accept
-requests for DID lookups and execute the corresponding DID method to
-retrieve the authoritative DID Document. To be conformant with this
-specification, a DID resolver:
+A DID Resolver is a software or hardware component with an API for resolving
+<a>DIDs</a> of at least one <a>DID method</a>. It
+executes the corresponding DID method's <a href="#read-verify">Read</a> operation to
+obtain the authoritative DID Document.
     </p>
 
-    <ol start="1">
-      <li>
-SHOULD validate that a DID is valid according to its DID method
-specification, otherwise it should produce an error.
-      </li>
+    <p>
+The interfaces and algorithms for resolving <a>DIDs</a> and dereferencing <a>DID URLs</a> are
+specified in [[DID-RESOLUTION]].
+    </p>
 
-      <li>
-MUST conform to the requirements of the applicable DID method
-specification when performing DID resolution operations.
-      </li>
-
-      <li>
-SHOULD offer the service of verifying the integrity of the DID
-Document if it is signed.
-      </li>
-
-      <li>
-MAY offer the service of returning requested properties of the DID
-Document.
-      </li>
-    </ol>
   </section>
 
   <section class="informative">
@@ -2268,7 +2241,7 @@ Section <a href="#did-operations"></a>.
 
         <li>
 Where DID methods make use of peer-to-peer computing resources
-        (such as with all known DLTs), the expected burdens of those
+(such as with all known DLTs), the expected burdens of those
 resources SHOULD be discussed in relation to denial of service.
         </li>
 
@@ -2476,7 +2449,7 @@ notification, the following approaches are RECOMMENDED:
 
       <ol start="1">
         <li>
-Subscriptions. If the <a>Decentralized Identifier Registry</a> on which the DID is
+Subscriptions. If the <a>DID Registry</a> on which the DID is
 registered directly supports change notifications, this service can
 be offered to DID controllers. Notifications MAY be sent directly to the
 relevant service endpoints listed in an existing DID.
@@ -2566,7 +2539,7 @@ be verified and trusted) is out-of-scope for this specification.
 Solutions to this problem (and there are many) should be defined in
 separate specifications that reference this specification. It is
 strongly recommended that such specifications carefully consider:
-          (a) the numerous security attacks based on deceiving users about
+(a) the numerous security attacks based on deceiving users about
 the true human-friendly identifier for a target entity, and (b) the
 privacy consequences of using human-friendly identifiers that are
 inherently correlatable, especially if they are globally unique.
@@ -2670,8 +2643,8 @@ Keep Personally-Identifiable Information (PII) Private
       </h2>
 
       <p>
-If a DID method specification is written for a public <a>Decentralized
-Identifier Registry</a> where all DIDs and DID Documents will be publicly available,
+If a DID method specification is written for a public <a>DID
+Registry</a> where all DIDs and DID Documents will be publicly available,
 it is STRONGLY RECOMMENDED that DID Documents contain no PII. All PII
 should be kept behind service endpoints under the control
 of the subject. With this privacy architecture, PII may be exchanged
@@ -2780,10 +2753,9 @@ Equivalence
 Including an equivalence property, such as equivID, in DID Documents
 whose value is an array of DIDs would allow subjects to assert two or
 more DIDs that represent the same subject. This capability has
-numerous uses, including supporting migration between <a>Decentralized
-Identifier Registries</a> and
-providing forward compatibility of existing DIDs to future <a>Decentralized
-Identifier Registries</a>. In
+numerous uses, including supporting migration between <a>DID Registries</a> and
+providing forward compatibility of existing DIDs to future <a>DID
+Registries</a>. In
 theory, equivalent DIDs should have the same identifier rights,
 allowing <a href="https://w3c.github.io/vctf/">verifiable claims</a>
 made against one DID to apply to equivalent DIDs. Equivalence was not
@@ -2808,7 +2780,7 @@ most censorship-resistant transaction ordering systems in the world,
 so they are nearly ideal for DID Document timestamping. In some cases
 a DLT's immediate timing is approximate, however their sense of
 <a href="https://github.com/bitcoin/bips/blob/master/bip-0113.mediawiki%23Abstract">
-        "median time past" (see Bitcoin BIP 113)</a> can be precisely
+"median time past" (see Bitcoin BIP 113)</a> can be precisely
 defined. A generic DID Document timestamping mechanism could would
 work across all DLTs and might operate via a mechanism including
 either individual transactions or transaction batches. The generic
