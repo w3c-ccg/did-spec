@@ -153,7 +153,7 @@ DID. Service endpoints enable trusted interactions with the DID subject.
     </p>
     <p>
 This document specifies a common data model, format, and operations that
-all DIDs support. 
+all DIDs support.
     </p>
   </section>
 
@@ -502,35 +502,6 @@ Terminology
 
     <div data-include="terms.html" data-oninclude="restrictReferences">
     </div>
-
-  </section>
-
-  <section class="informative">
-    <h1>
-Data Model
-    </h1>
-    <p>
-This section outlines the Decentralized Identifier data model concepts.
-These are elaborated in <a href="#did-documents"></a>.
-    </p>
-
-    <section>
-      <h2>
-Document
-      </h2>
-    </section>
-
-    <section>
-      <h2>
-Keys
-      </h2>
-    </section>
-
-    <section>
-      <h2>
-Services
-      </h2>
-    </section>
 
   </section>
 
@@ -934,7 +905,7 @@ DID Documents
 
     <p>
 A DID points to a DID Document. DID Documents are the serialization of
-the <a href="#data-model"></a>.
+the data model</a>.
 The following sections define the properties of the DID Document,
 including whether these properties are required or optional.
     </p>
@@ -1874,8 +1845,8 @@ DID Document Syntax
 A DID Document MUST be a single JSON object conforming to [[RFC8259]].
 Many of the concepts in this document were introduced by example using the
 JSON-LD syntax, a format for mapping JSON data into the RDF semantic graph model as defined by
-[[!JSON-LD]]. This section formalizes how the data model (described in Sections
-<a href="#data-model"></a> and <a href="#did-documents"></a>) is realized in JSON-LD.
+[[!JSON-LD]]. This section formalizes how the data model (described in Section
+ <a href="#did-documents"></a>) is realized in JSON-LD.
         </p>
         <p>
 Although syntactic mappings are provided for JSON and JSON-LD only, applications and
@@ -1888,7 +1859,7 @@ XDI graph model</a>), XML, YAML, or CBOR, that is capable of expressing the data
         <h3>JSON</h3>
 
         <p>
-The data model as described in Section <a href="#data-model"></a> can be
+The data model as described in Section <a href="#did-documents"></a> can be
 encoded in Javascript Object Notation (JSON) [[RFC8259]] by mapping property
 values to JSON types as follows:
         </p>
@@ -2027,10 +1998,10 @@ DID method specification MUST specify how each of the following
 CRUD</a> operations is performed by a client. Each operation MUST be
 specified to the level of detail necessary to build and test
 interoperable client implementations with the target system.
-The specification document for a DID method that does not support specific 
-operations such as Update and Deactivate MUST clearly specify these 
-limitations. Note that, due to the specified contents of DID Documents, 
-these operations can effectively be used to perform all the operations 
+The specification document for a DID method that does not support specific
+operations such as Update and Deactivate MUST clearly specify these
+limitations. Note that, due to the specified contents of DID Documents,
+these operations can effectively be used to perform all the operations
 required of a CKMS (cryptographic key management system), e.g.:
       </p>
 
@@ -2087,8 +2058,8 @@ Update
 
         <p>
 The DID method specification MUST specify how a client can update a
-DID Document on the <a>Decentralized Identifier Registry</a>, 
-including all cryptographic operations necessary to establish proof 
+DID Document on the <a>Decentralized Identifier Registry</a>,
+including all cryptographic operations necessary to establish proof
 of control, <em>or</em>  state that updates are not possible.
         </p>
       </section>
@@ -2102,7 +2073,7 @@ Deactivate
 Although a core feature of distributed ledgers is immutability, the
 DID method specification MUST specify how a client can deactivate a DID
 on the <a>Decentralized Identifier Registry</a>, including all cryptographic
-operations necessary to establish proof of deactivation <em>or</em> state that 
+operations necessary to establish proof of deactivation <em>or</em> state that
 deactivation is not possible.
         </p>
       </section>
