@@ -3,10 +3,10 @@
 ## Background
 
 JSON-LD Context versioning (and schema versioning in general) is a complex 
-topic, involving the need to balance security and developer convenience.
+topic, involving the need to balance security with developer convenience.
 
 On one end of the spectrum, some use cases require cryptographically bound and 
-immutable contexts, and will need to use a contest-addressable URL mechanism,
+immutable contexts, and will need to use a content-addressable URL mechanism,
 such as the in-progress 
 [Hashlink](https://tools.ietf.org/html/draft-sporny-hashlink-03) spec.
 
