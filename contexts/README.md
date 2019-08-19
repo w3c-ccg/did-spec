@@ -7,9 +7,10 @@ topic, involving the need to balance security with developer convenience.
 
 On one end of the spectrum, some use cases require cryptographically bound and 
 immutable contexts, and will need to enforce immutability at the code level
-(by using a content-addressable URL mechanism such as the in-progress 
-[Hashlink](https://tools.ietf.org/html/draft-sporny-hashlink-03) spec, or by
-forcing the resolution of a given URL to a known hard-coded embedded context).
+(for example, by using a content-addressable URL scheme such as the in-progress 
+[Hashlink](https://tools.ietf.org/html/draft-sporny-hashlink-03) spec, by
+forcing the resolution of a given URL to a known hard-coded embedded context,
+or any other appropriate mechanism).
 
 On the opposite end of the spectrum, developers that can tolerate the fact that
 the DID context is still changing (in the Credentials Community Group and the 
