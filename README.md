@@ -7,5 +7,5 @@ purposes. Work on the specification continues in the
 
 The latest specification can be found here:
 
-https://w3.github.io/did-core/
+https://w3c.github.io/did-core/
 
